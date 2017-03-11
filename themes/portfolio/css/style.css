@@ -1,0 +1,45 @@
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+header .jumbotron {
+  background: url(../images/red-to-green.svg);
+  background-position: center;
+  background-attachment: fixed;
+  margin-bottom: 0; }
+
+header + nav {
+  background: #a6d96a; }
+  header + nav .nav-link {
+    color: black;
+    font-weight: 500; }
+    header + nav .nav-link:hover {
+      background: #81c432; }
+    header + nav .nav-link.current, header + nav .nav-link.section {
+      color: rgba(255, 255, 255, 0.95);
+      text-overflow: clip;
+      text-shadow: -1px -1px 0 rgba(102, 156, 40, 0.66); }
+      header + nav .nav-link.current:hover, header + nav .nav-link.section:hover {
+        text-shadow: -1px -1px 0 rgba(49, 74, 19, 0.66); }
+
+main {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+footer {
+  background: url(../images/red-to-green.svg);
+  background-position: center;
+  background-attachment: fixed; }

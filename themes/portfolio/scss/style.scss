@@ -1,0 +1,51 @@
+@import "variables";
+@import "mixins";
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	
+	display: flex;
+	flex-direction: column;
+}
+
+header .jumbotron {
+	@include fixedBG($mainImage);
+	margin-bottom: 0;
+}
+
+header + nav {
+	background: $paleGreen;
+	
+	.nav-link {
+		color: black;
+		// font-size: 1.25rem;
+		font-weight: 500;
+		
+		&:hover {
+			background:	darken($paleGreen, 15%);
+		}
+		
+		
+		&.current, &.section {
+			color: rgba(255, 255, 255, 0.95);
+			text-overflow: clip;
+			text-shadow: -1px -1px 0 rgba(darken($paleGreen, 25%), 0.66);
+			
+			&:hover {
+				text-shadow: -1px -1px 0 rgba(darken($paleGreen, 45%), 0.66);
+			}
+		}
+	}
+}
+
+main {
+	flex-grow: 1;
+}
+
+footer {
+	@include fixedBG($mainImage);
+}
