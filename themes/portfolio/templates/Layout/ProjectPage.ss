@@ -11,6 +11,16 @@
         </div>
     <% end_if %>
 	
+	<% if $Languages %>
+		<div class="container text-center">
+			<% loop $Languages %>
+    			<a href="$Link" class="language-container">
+    				<div class="language" style="background-color:#$BGColor">$Title</div>
+				</a>
+			<% end_loop %>
+		</div>
+	<% end_if %>
+	
 	<div class="container">
 		$Content
 	</div>

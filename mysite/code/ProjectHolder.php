@@ -1,30 +1,38 @@
-<?php 
+<?php
 
-class ProjectHolder extends Page {
-    
+class ProjectHolder extends Page
+{
+
     private static $allowed_children = array(
         'ProjectPage'
     );
-    
+
     private static $has_many = array(
         'Languages' => 'ProjectLanguage'
     );
-    
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Languages', GridField::create('Languages', 'Project languages', $this->Languages(), GridFieldConfig_RecordEditor::create()));
-    
+        
         return $fields;
     }
-    
 }
 
-class ProjectHolder_Controller extends Page_Controller {
-    
+class ProjectHolder_Controller extends Page_Controller
+{
+
     protected $projectList;
-    
-    public function init() {
+
+    protected $languageList;
+
+    private static $allowed_actions = array(
+        'language'
+    );
+
+    public function init()
+    {
         parent::init();
         
         Requirements::customScript(<<<JS
@@ -38,34 +46,70 @@ class ProjectHolder_Controller extends Page_Controller {
                 });
             })(jQuery)
 JS
-        );
+);
         
         $this->projectList = ProjectPage::get()->filter(array(
             'ParentID' => $this->ID
         ));
-    
     }
-    
-    public function category(SS_HTTPRequest $request)
+
+    public function language(SS_HTTPRequest $request)
     {
-        $language = ProjectLanguage::get()->byID($request->param('ID'));
-    
-        if (! $language) {
-            return $this->httpError(404, 'That language was not found');
+        if ($request->param('ID')) {
+            
+            $language = ProjectLanguage::get()->filter(array(
+                'ProjectHolderID' => $this->ID,
+                'URLSegment' => $request->param('ID')
+            ))
+                ->First();
+            
+            if (! $language) {
+                return $this->httpError(404, 'That language was not found');
+            }
+            
+            $this->projectList = $this->projectList->filter(array(
+                'Languages.ID' => $language->ID
+            ));
+            
+            $this->addToBreadCrumb($this->Link() . "language", "Languages");
+            $this->addToBreadCrumb($this->Link() . "language/" . $language->URLSegment, $language->Title);
+            
+            return array(
+                'SelectedLanguage' => $language
+            );
+        } else {
+            
+            $this->languageList = ProjectLanguage::get()->filter(array(
+                'ProjectHolderID' => $this->ID
+            ));
+            
+            $this->addToBreadCrumb($this->Link() . "language", "Languages");
+            
+            return array(
+                'SelectedLanguage' => ''
+            );
         }
-    
-        $this->projectList = $this->projectList->filter(array(
-            'Languages.ID' => $language->ID
-        ));
-    
-        return array(
-            'SelectedLanguage' => $language
-        );
     }
-    
+
+    private function addToBreadCrumb($link, $title)
+    {
+        $obj = new DataObject();
+        $obj->Link = $link;
+        $obj->MenuTitle = $title;
+        $obj->Title = $title;
+        $this->AddBreadCrumbAfter($obj);
+    }
+
     public function PaginatedProjects($num = 10)
     {
         return PaginatedList::create($this->projectList, $this->getRequest())->setPageLength($num);
+    }
+
+    public function PaginatedLanguages($num = 10)
+    {
+        if ($this->languageList) {
+            return PaginatedList::create($this->languageList, $this->getRequest())->setPageLength($num);
+        }
     }
 }
 

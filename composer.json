@@ -9,7 +9,8 @@
 		"silverstripe/siteconfig": "3.5.3",
 		"silverstripe-themes/simple": "3.1.*",
 		"zauberfisch/silverstripe-better-image": "dev-master",
-		"tractorcow/silverstripe-colorpicker": "3.0.*@dev"
+		"tractorcow/silverstripe-colorpicker": "3.0.*@dev",
+		"exadium/breadcrumbnavigation": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/PHPUnit": "~3.7@stable"

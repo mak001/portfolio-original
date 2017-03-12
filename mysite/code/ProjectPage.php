@@ -39,11 +39,14 @@ class ProjectPage extends Page {
             ));
             $field->setFolderName('project-photos');
         }
-        
-        
-        $fields->addFieldToTab('Root.Languages', CheckboxSetField::create('Languages', 'Selected languages', $this->Parent()
+
+        $fields->addFieldToTab('Root.Languages', $listboxfield = ListboxField::create('Languages', 'Selected languages', $this->Parent()
             ->Languages()
-            ->map('ID', 'Title')));
+            ->map('ID', 'Title')
+            ->toArray(),
+            $value = ""));
+        
+        $listboxfield->setMultiple(true);
         
         return $fields;
     }

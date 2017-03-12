@@ -13,7 +13,7 @@
 		<% include MainNav %>
 		
 		<main>
-			<% include BreadCrumbs %>
+			<% include BreadcrumbNavigationTemplate %>
 			
 			$Layout
 		</main>

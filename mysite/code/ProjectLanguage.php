@@ -4,7 +4,13 @@ class ProjectLanguage extends DataObject {
     
     private static $db = array(
         'Title' => 'Varchar',
-        'BGColor' => 'Color'
+        'BGColor' => 'Color',
+        'URLSegment' => 'Varchar'
+    );
+    
+    //Add an SQL index for the URLSegment
+    static $indexes = array(
+        "URLSegment" => true
     );
     
     private static $has_one = array(
@@ -19,12 +25,13 @@ class ProjectLanguage extends DataObject {
     {
         return FieldList::create(array(
             TextField::create('Title'),
+            TextField::create('URLSegment', 'URL Segment'),
             new ColorField('BGColor', 'Background Color')
         ));
     }
     
     public function Link() {
-        return $this->ProjectHolder()->Link('language/' . $this->ID);
+        return $this->ProjectHolder()->Link('language/' . $this->URLSegment);
     }
     
 }
