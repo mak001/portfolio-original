@@ -79,9 +79,17 @@ JS
             );
         } else {
             
+            /*
             $this->languageList = ProjectLanguage::get()->filter(array(
-                'ProjectHolderID' => $this->ID
+                'ProjectHolderID' => $this->ID,
+               // "Projects.Count:GreaterThan" => 0
             ));
+            */
+            $this->languageList =  $this->Languages();
+            
+            
+            //echo "<pre>"; print_r($this->languageList->toArray()); echo "</pre>";
+            
             
             $this->addToBreadCrumb($this->Link() . "language", "Languages");
             
