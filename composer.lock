@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c83357c26f3fd3a6bef9f9a35abeba5",
+    "content-hash": "3da7463c5122c813adb79e864cacb6cd",
     "packages": [
         {
             "name": "composer/installers",
@@ -349,6 +349,42 @@
                 "siteconfig"
             ],
             "time": "2016-12-22T00:18:45+00:00"
+        },
+        {
+            "name": "tractorcow/silverstripe-colorpicker",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tractorcow/silverstripe-colorpicker.git",
+                "reference": "2d1a1afc580b84dc47a8e708c09a3c7588385174"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tractorcow/silverstripe-colorpicker/zipball/2d1a1afc580b84dc47a8e708c09a3c7588385174",
+                "reference": "2d1a1afc580b84dc47a8e708c09a3c7588385174",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "3.*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "colorpicker"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Damian Mooyman",
+                    "email": "damian.mooyman@gmail.com"
+                }
+            ],
+            "description": "Color picker field for Silverstripe CMS using the ColorPicker jQuery plugin",
+            "keywords": [
+                "color",
+                "colour",
+                "silverstripe"
+            ],
+            "time": "2015-01-27T20:44:50+00:00"
         },
         {
             "name": "zauberfisch/silverstripe-better-image",
@@ -814,6 +850,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "zauberfisch/silverstripe-better-image": 20,
+        "tractorcow/silverstripe-colorpicker": 20,
         "phpunit/phpunit": 0
     },
     "prefer-stable": true,

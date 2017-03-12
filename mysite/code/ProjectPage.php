@@ -15,6 +15,10 @@ class ProjectPage extends Page {
         'MainImageHasLogo' => 'Boolean'
     );
     
+    private static $many_many = array(
+        'Languages' => 'ProjectLanguage'
+    );
+    
     public function getCMSFields() {
         $fields = parent::getCMSFields();
         
@@ -35,6 +39,11 @@ class ProjectPage extends Page {
             ));
             $field->setFolderName('project-photos');
         }
+        
+        
+        $fields->addFieldToTab('Root.Languages', CheckboxSetField::create('Languages', 'Selected languages', $this->Parent()
+            ->Languages()
+            ->map('ID', 'Title')));
         
         return $fields;
     }

@@ -3,8 +3,8 @@
 		$Content
 	</div>
 	<div class="row">
-		<% if $Children %>
-			<% loop $Children %>
+		<% if $PaginatedProjects %>
+			<% loop $PaginatedProjects %>
             	<div class="col-md-6 col-xl-3">
             		<div class="card my-1">
 

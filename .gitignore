@@ -25,6 +25,7 @@ _ss_environment.php
 *.log
 /themes/simple/
 /better-image/
+/colorpicker/
 
 #eclipse
 .metadata
