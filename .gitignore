@@ -24,6 +24,7 @@ _ss_environment.php
 *.orig
 *.log
 /themes/simple/
+/better-image/
 
 #eclipse
 .metadata

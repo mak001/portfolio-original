@@ -12,17 +12,37 @@ body {
 	flex-direction: column;
 }
 
-header .jumbotron {
-	@include fixedBG($mainImage);
-	margin-bottom: 0;
+header {
+	a {
+		text-decoration: none;
+		color: black;
+		
+		&:hover {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+		
+	.jumbotron {
+		@include fixedBG($mainImage);
+		margin-bottom: 0;
+	}
 }
 
 header + nav {
 	background: $paleGreen;
 	
+	.navbar-toggler-icon {
+		background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>");
+	}
+
+	.container {
+		width: 100%;
+	}
+	
 	.nav-link {
 		color: black;
-		// font-size: 1.25rem;
+		float: none;
 		font-weight: 500;
 		
 		&:hover {
@@ -44,6 +64,28 @@ header + nav {
 
 main {
 	flex-grow: 1;
+}
+
+main .jumbotron#project-header {
+	background-size: cover;
+	position: relative;
+	background-position: center top;
+	min-height: 250px;
+	
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.35);
+	}
+	
+	h1 {
+		color: white;
+		text-shadow: 0 0 4px black;
+	}
+	
 }
 
 footer {
