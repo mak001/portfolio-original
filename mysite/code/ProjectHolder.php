@@ -85,8 +85,15 @@ JS
                // "Projects.Count:GreaterThan" => 0
             ));
             */
-            $this->languageList =  $this->Languages();
+            //$this->languageList =  $this->Languages();
             
+            $langs = array();
+            foreach($this->Languages() as $lang) {
+                if (count($lang->Projects()) > 0) {
+                    $langs[] = $lang;
+                }
+            }
+            $this->languageList = ArrayList::create($langs);
             
             //echo "<pre>"; print_r($this->languageList->toArray()); echo "</pre>";
             
