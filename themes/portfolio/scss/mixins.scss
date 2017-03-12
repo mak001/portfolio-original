@@ -34,3 +34,8 @@
 		background-color: rgba($r, $g, $b, $opacity);
 	}
 }
+
+@mixin outline($color: white, $shadow: black) {
+	color: $color;
+	text-shadow: 0px 0px 2px $shadow;
+}
