@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-4">
 	
 	<% if $MainImageHasLogo %>
     	<div class="jumbotron bg-info text-center" id="project-header" style="background-image: url($MainPhotoResizeLink(1110, 350))">
@@ -11,28 +11,29 @@
         </div>
     <% end_if %>
 	
-	<% if $Languages %>
-		<div class="container text-center">
-			<h4>Languages used:</h4>
-			<% loop $Languages %>
-    			<a href="$Link" class="language-container">
-    				<div class="language" style="background-color:#$BGColor">$Title</div>
-				</a>
-			<% end_loop %>
-		</div>
-	<% end_if %>
-	
-	<% if $Frameworks %>
-		<div class="container text-center">
-			<h4>Frameworks used:</h4>
-			<% loop $Frameworks %>
-    			<a href="$Link" class="language-container">
-    				<div class=language style="background-color:#$BGColor">$Title</div>
-				</a>
-			<% end_loop %>
-		</div>
-	<% end_if %>
-	
+	<div class="row">
+		<div class="container text-center text-md-left col-md-6 mb-3">
+    		<% if $Languages %>
+    			<h4>Languages</h4>
+    			<% loop $Languages %>
+        			<a href="$Link" class="language-container">
+        				<div class="language" style="background-color:#$BGColor">$Title</div>
+    				</a>
+    			<% end_loop %>
+    		<% end_if %>
+    	</div>
+    	
+    	<div class="container text-center text-md-right col-md-6 mb-3">
+    		<% if $Frameworks %>
+    			<h4>Frameworks</h4>
+    			<% loop $Frameworks %>
+        			<a href="$Link" class="framework-container">
+        				<div class="framework" style="background-color:#$BGColor">$Title</div>
+    				</a>
+    			<% end_loop %>
+    		<% end_if %>
+    	</div>
+	</div>
 	<div class="container">
 		$Content
 	</div>

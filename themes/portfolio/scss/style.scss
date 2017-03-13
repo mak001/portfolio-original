@@ -94,22 +94,11 @@ main .jumbotron#project-header {
 }
 
 .language-container {
-	text-decoration: none;
-	
-	
-	.language {
-		display: inline-block;
-		margin: 2px 5px;
-		padding: 5px;
-		border-radius: 0.3rem;
-		
-		@include outline;
-		border: 2px solid black;
-	}
+	@include buttonLinks(language);
+}
 
-	&:hover {
-		text-decoration: none;
-	}
+.framework-container {
+	@include buttonLinks(framework);
 }
 
 footer {
