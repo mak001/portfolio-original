@@ -4,8 +4,9 @@ class ProjectHolder extends Page
 {
 
     const LANGUAGE_ROUTE = 'languages';
+
     const FRAMEWORK_ROUTE = 'frameworks';
-    
+
     private static $allowed_children = array(
         'ProjectPage'
     );
@@ -23,15 +24,17 @@ class ProjectHolder extends Page
         
         return $fields;
     }
-    
-    public function LanguageLink($lang = null) {
+
+    public function LanguageLink($lang = null)
+    {
         if ($lang === null) {
             return $this->Link($this::LANGUAGE_ROUTE);
-        } 
+        }
         return $this->Link($this::LANGUAGE_ROUTE . '/' . $lang);
     }
-    
-    public function FrameworkLink($frame = null) {
+
+    public function FrameworkLink($frame = null)
+    {
         if ($frame === null) {
             return $this->Link($this::FRAMEWORK_ROUTE);
         }
@@ -45,6 +48,7 @@ class ProjectHolder_Controller extends Page_Controller
     protected $projectList;
 
     protected $languageList;
+
     protected $frameworkList;
 
     private static $allowed_actions = array(
@@ -81,7 +85,8 @@ JS
             $language = ProjectLanguage::get()->filter(array(
                 'ProjectHolderID' => $this->ID,
                 'URLSegment' => $request->param('ID')
-            ))->First();
+            ))
+                ->First();
             
             if (! $language) {
                 return $this->httpError(404, 'That language was not found');
@@ -98,7 +103,7 @@ JS
                 'SelectedLanguage' => $language
             );
         } else {
-          
+            
             $this->languageList = $this->ProjectLanguages()
                 ->leftJoin('projectpage_languages', 'projectlanguage.ID = projectpage_languages.ProjectLanguageID')
                 ->exclude('projectpage_languages.ProjectPageID', '0')
@@ -111,28 +116,28 @@ JS
             );
         }
     }
-    
+
     public function frameworks(SS_HTTPRequest $request)
     {
         if ($request->param('ID')) {
-    
+            
             $framework = ProjectFramework::get()->filter(array(
                 'ProjectHolderID' => $this->ID,
                 'URLSegment' => $request->param('ID')
             ))
-            ->First();
-    
+                ->First();
+            
             if (! $framework) {
                 return $this->httpError(404, 'That language was not found');
             }
-    
+            
             $this->projectList = $this->projectList->filter(array(
                 'Frameworks.ID' => $framework->ID
             ));
-    
+            
             $this->addToBreadCrumb($this->FrameworkLink(), "Frameworks");
             $this->addToBreadCrumb($framework->Link(), $framework->Title);
-    
+            
             return array(
                 'SelectedFramework' => $framework
             );
@@ -142,9 +147,9 @@ JS
                 ->leftJoin('projectpage_frameworks', 'projectframework.ID = projectpage_frameworks.ProjectFrameworkID')
                 ->exclude('projectpage_frameworks.ProjectPageID', '0')
                 ->distinct(true);
-    
+            
             $this->addToBreadCrumb($this->FrameworkLink(), "Frameworks");
-    
+            
             return array(
                 'SelectedFramework' => ''
             );
@@ -171,7 +176,7 @@ JS
             return PaginatedList::create($this->languageList, $this->getRequest())->setPageLength($num);
         }
     }
-    
+
     public function PaginatedFrameworks($num = 10)
     {
         if ($this->frameworkList) {

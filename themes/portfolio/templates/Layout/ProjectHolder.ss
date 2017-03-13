@@ -1,7 +1,9 @@
 <div class="container py-4">
-	<div>
-		$Content
-	</div>
+	<% if not Pages || Pages.Count == 1 %>
+    	<div>
+    		$Content
+    	</div>
+	<% end_if %>
 	<div class="row">
 	
 		<% if $PaginatedLanguages %>
