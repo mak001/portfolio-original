@@ -98,25 +98,11 @@ JS
                 'SelectedLanguage' => $language
             );
         } else {
-            
-            /*
-            $this->languageList = ProjectLanguage::get()->filter(array(
-                'ProjectHolderID' => $this->ID,
-               // "Projects.Count:GreaterThan" => 0
-            ));
-            */
-            //$this->languageList =  $this->ProjectLanguages();
-            
-            $langs = array();
-            foreach($this->ProjectLanguages() as $lang) {
-                if (count($lang->Projects()) > 0) {
-                    $langs[] = $lang;
-                }
-            }
-            $this->languageList = ArrayList::create($langs);
-            
-            //echo "<pre>"; print_r($this->languageList->toArray()); echo "</pre>";
-            
+          
+            $this->languageList = $this->ProjectLanguages()
+                ->leftJoin('projectpage_languages', 'projectlanguage.ID = projectpage_languages.ProjectLanguageID')
+                ->exclude('projectpage_languages.ProjectPageID', '0')
+                ->distinct(true);
             
             $this->addToBreadCrumb($this->LanguageLink(), "Languages");
             
@@ -151,25 +137,11 @@ JS
                 'SelectedFramework' => $framework
             );
         } else {
-    
-            /*
-             $this->languageList = ProjectLanguage::get()->filter(array(
-             'ProjectHolderID' => $this->ID,
-             // "Projects.Count:GreaterThan" => 0
-             ));
-             */
-            //$this->languageList =  $this->ProjectLanguages();
-    
-            $frames = array();
-            foreach($this->ProjectFrameworks() as $frame) {
-                if (count($frame->Projects()) > 0) {
-                    $frames[] = $frame;
-                }
-            }
-            $this->frameworkList = ArrayList::create($frames);
-    
-            //echo "<pre>"; print_r($this->languageList->toArray()); echo "</pre>";
-    
+            
+            $this->frameworkList = $this->ProjectFrameworks()
+                ->leftJoin('projectpage_frameworks', 'projectframework.ID = projectpage_frameworks.ProjectFrameworkID')
+                ->exclude('projectpage_frameworks.ProjectPageID', '0')
+                ->distinct(true);
     
             $this->addToBreadCrumb($this->FrameworkLink(), "Frameworks");
     
