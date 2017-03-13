@@ -31,7 +31,7 @@ class ProjectLanguage extends DataObject {
     }
     
     public function Link() {
-        return $this->ProjectHolder()->Link('language/' . $this->URLSegment);
+        return $this->ProjectHolder()->LanguageLink($this->URLSegment);
     }
     
 }

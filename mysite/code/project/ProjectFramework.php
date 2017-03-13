@@ -31,7 +31,7 @@ class ProjectFramework extends DataObject {
     }
     
     public function Link() {
-        return $this->ProjectHolder()->Link('framework/' . $this->URLSegment);
+        return $this->ProjectHolder()->FrameworkLink($this->URLSegment);
     }
     
 }
