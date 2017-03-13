@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2017 at 01:52 AM
+-- Generation Time: Mar 13, 2017 at 08:52 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -226,7 +226,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`ID`, `ClassName`, `LastEdited`, `Created`, `FirstName`, `Surname`, `Email`, `TempIDHash`, `TempIDExpired`, `Password`, `RememberLoginToken`, `NumVisit`, `LastVisited`, `AutoLoginHash`, `AutoLoginExpired`, `PasswordEncryption`, `Salt`, `PasswordExpiry`, `LockedOutUntil`, `Locale`, `FailedLoginCount`, `DateFormat`, `TimeFormat`) VALUES
-(1, 'Member', '2017-03-09 16:29:20', '2017-03-09 16:26:16', 'Default Admin', NULL, 'Matthew.Koerber', '11a25d3b91599a7b3fb6ef46cc8465f289a026c3', '2017-03-12 16:29:20', '$2y$10$24ae7b637c8828c857ec0u334BlO1sY6Y/ITBhUfiMWzFdsQs9Wf.', NULL, 1, '2017-03-12 20:51:35', NULL, NULL, 'blowfish', '10$24ae7b637c8828c857ec06', NULL, NULL, 'en_US', 0, NULL, NULL);
+(1, 'Member', '2017-03-09 16:29:20', '2017-03-09 16:26:16', 'Default Admin', NULL, 'Matthew.Koerber', '11a25d3b91599a7b3fb6ef46cc8465f289a026c3', '2017-03-12 16:29:20', '$2y$10$24ae7b637c8828c857ec0u334BlO1sY6Y/ITBhUfiMWzFdsQs9Wf.', NULL, 1, '2017-03-13 15:49:37', NULL, NULL, 'blowfish', '10$24ae7b637c8828c857ec06', NULL, NULL, 'en_US', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -578,15 +578,17 @@ CREATE TABLE `siteconfig` (
   `Theme` varchar(255) DEFAULT NULL,
   `CanViewType` enum('Anyone','LoggedInUsers','OnlyTheseUsers') DEFAULT 'Anyone',
   `CanEditType` enum('LoggedInUsers','OnlyTheseUsers') DEFAULT 'LoggedInUsers',
-  `CanCreateTopLevelType` enum('LoggedInUsers','OnlyTheseUsers') DEFAULT 'LoggedInUsers'
+  `CanCreateTopLevelType` enum('LoggedInUsers','OnlyTheseUsers') DEFAULT 'LoggedInUsers',
+  `LanguageLink` varchar(50) DEFAULT NULL,
+  `FrameworkLink` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `siteconfig`
 --
 
-INSERT INTO `siteconfig` (`ID`, `ClassName`, `LastEdited`, `Created`, `Title`, `Tagline`, `Theme`, `CanViewType`, `CanEditType`, `CanCreateTopLevelType`) VALUES
-(1, 'SiteConfig', '2017-03-11 02:56:37', '2017-03-09 16:26:15', 'Matthew Koerber', 'Trying to come up with a tagline', 'portfolio', 'Anyone', 'LoggedInUsers', 'LoggedInUsers');
+INSERT INTO `siteconfig` (`ID`, `ClassName`, `LastEdited`, `Created`, `Title`, `Tagline`, `Theme`, `CanViewType`, `CanEditType`, `CanCreateTopLevelType`, `LanguageLink`, `FrameworkLink`) VALUES
+(1, 'SiteConfig', '2017-03-13 19:33:15', '2017-03-09 16:26:15', 'Matthew Koerber', 'Trying to come up with a tagline', 'portfolio', 'Anyone', 'LoggedInUsers', 'LoggedInUsers', 'languages', 'frameworks');
 
 -- --------------------------------------------------------
 
@@ -632,7 +634,7 @@ CREATE TABLE `siteconfig_viewergroups` (
 
 CREATE TABLE `sitetree` (
   `ID` int(11) NOT NULL,
-  `ClassName` enum('SiteTree','Page','ProjectHolder','ProjectPage','ErrorPage','RedirectorPage','VirtualPage') DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage','ProjectHolder','ProjectPage') DEFAULT 'SiteTree',
   `LastEdited` datetime DEFAULT NULL,
   `Created` datetime DEFAULT NULL,
   `URLSegment` varchar(255) DEFAULT NULL,
@@ -716,7 +718,7 @@ CREATE TABLE `sitetree_linktracking` (
 
 CREATE TABLE `sitetree_live` (
   `ID` int(11) NOT NULL,
-  `ClassName` enum('SiteTree','Page','ProjectHolder','ProjectPage','ErrorPage','RedirectorPage','VirtualPage') DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage','ProjectHolder','ProjectPage') DEFAULT 'SiteTree',
   `LastEdited` datetime DEFAULT NULL,
   `Created` datetime DEFAULT NULL,
   `URLSegment` varchar(255) DEFAULT NULL,
@@ -767,7 +769,7 @@ CREATE TABLE `sitetree_versions` (
   `WasPublished` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `AuthorID` int(11) NOT NULL DEFAULT '0',
   `PublisherID` int(11) NOT NULL DEFAULT '0',
-  `ClassName` enum('SiteTree','Page','ProjectHolder','ProjectPage','ErrorPage','RedirectorPage','VirtualPage') DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage','ProjectHolder','ProjectPage') DEFAULT 'SiteTree',
   `LastEdited` datetime DEFAULT NULL,
   `Created` datetime DEFAULT NULL,
   `URLSegment` varchar(255) DEFAULT NULL,
