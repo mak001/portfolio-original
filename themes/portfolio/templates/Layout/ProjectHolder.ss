@@ -20,6 +20,22 @@
 				<% include Pagination %>
 			<% end_with %>
 			
+		<% else_if $PaginatedFrameworks %>
+			<% loop $PaginatedFrameworks %>
+			<div class="col-md-6 col-xl-3">
+            		<div class="card my-1 language">
+						<h4 class="card-title" style="background-color: #$BGColor">$Title</h4>
+            			<div class="card-block">
+            				<a href="$Link" class="btn btn-primary">Projects</a>
+            			</div>
+            		</div>
+            	</div>
+			<% end_loop %>
+			
+			<% with $PaginatedFrameworks %>
+				<% include Pagination %>
+			<% end_with %>
+			
 		<% else_if $PaginatedProjects %>
 			<% loop $PaginatedProjects %>
             	<div class="col-md-6 col-xl-3">

@@ -8,13 +8,15 @@ class ProjectHolder extends Page
     );
 
     private static $has_many = array(
-        'Languages' => 'ProjectLanguage'
+        'Languages' => 'ProjectLanguage',
+        'Frameworks' => 'ProjectFramework'
     );
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Languages', GridField::create('Languages', 'Project languages', $this->Languages(), GridFieldConfig_RecordEditor::create()));
+        $fields->addFieldToTab('Root.Frameworks', GridField::create('Frameworks', 'Project frameworks', $this->Frameworks(), GridFieldConfig_RecordEditor::create()));
         
         return $fields;
     }
@@ -26,9 +28,11 @@ class ProjectHolder_Controller extends Page_Controller
     protected $projectList;
 
     protected $languageList;
+    protected $frameworkList;
 
     private static $allowed_actions = array(
-        'language'
+        'language',
+        'framework'
     );
 
     public function init()
@@ -105,6 +109,59 @@ JS
             );
         }
     }
+    
+    public function framework(SS_HTTPRequest $request)
+    {
+        if ($request->param('ID')) {
+    
+            $framework = ProjectFramework::get()->filter(array(
+                'ProjectHolderID' => $this->ID,
+                'URLSegment' => $request->param('ID')
+            ))
+            ->First();
+    
+            if (! $framework) {
+                return $this->httpError(404, 'That language was not found');
+            }
+    
+            $this->projectList = $this->projectList->filter(array(
+                'Frameworks.ID' => $framework->ID
+            ));
+    
+            $this->addToBreadCrumb($this->Link() . "framework", "Frameworks");
+            $this->addToBreadCrumb($this->Link() . "framework/" . $framework->URLSegment, $framework->Title);
+    
+            return array(
+                'SelectedFramework' => $framework
+            );
+        } else {
+    
+            /*
+             $this->languageList = ProjectLanguage::get()->filter(array(
+             'ProjectHolderID' => $this->ID,
+             // "Projects.Count:GreaterThan" => 0
+             ));
+             */
+            //$this->languageList =  $this->Languages();
+    
+            $frames = array();
+            foreach($this->Frameworks() as $frame) {
+                if (count($frame->Projects()) > 0) {
+                    $frames[] = $frame;
+                }
+            }
+            $this->frameworkList = ArrayList::create($frames);
+    
+            //echo "<pre>"; print_r($this->languageList->toArray()); echo "</pre>";
+    
+    
+            $this->addToBreadCrumb($this->Link() . "framework", "Frameworks");
+    
+            return array(
+                'SelectedFramework' => ''
+            );
+        }
+    }
 
     private function addToBreadCrumb($link, $title)
     {
@@ -124,6 +181,13 @@ JS
     {
         if ($this->languageList) {
             return PaginatedList::create($this->languageList, $this->getRequest())->setPageLength($num);
+        }
+    }
+    
+    public function PaginatedFrameworks($num = 10)
+    {
+        if ($this->frameworkList) {
+            return PaginatedList::create($this->frameworkList, $this->getRequest())->setPageLength($num);
         }
     }
 }

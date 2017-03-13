@@ -13,9 +13,21 @@
 	
 	<% if $Languages %>
 		<div class="container text-center">
+			<h4>Languages used:</h4>
 			<% loop $Languages %>
     			<a href="$Link" class="language-container">
     				<div class="language" style="background-color:#$BGColor">$Title</div>
+				</a>
+			<% end_loop %>
+		</div>
+	<% end_if %>
+	
+	<% if $Frameworks %>
+		<div class="container text-center">
+			<h4>Frameworks used:</h4>
+			<% loop $Frameworks %>
+    			<a href="$Link" class="language-container">
+    				<div class=language style="background-color:#$BGColor">$Title</div>
 				</a>
 			<% end_loop %>
 		</div>

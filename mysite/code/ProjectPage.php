@@ -16,7 +16,8 @@ class ProjectPage extends Page {
     );
     
     private static $many_many = array(
-        'Languages' => 'ProjectLanguage'
+        'Languages' => 'ProjectLanguage',
+        'Frameworks' => 'ProjectFramework'
     );
     
     public function getCMSFields() {
@@ -40,13 +41,21 @@ class ProjectPage extends Page {
             $field->setFolderName('project-photos');
         }
 
-        $fields->addFieldToTab('Root.Languages', $listboxfield = ListboxField::create('Languages', 'Selected languages', $this->Parent()
+        $fields->addFieldToTab('Root.Languages', $langs = ListboxField::create('Languages', 'Selected languages', $this->Parent()
             ->Languages()
             ->map('ID', 'Title')
             ->toArray(),
             $value = ""));
         
-        $listboxfield->setMultiple(true);
+        $langs->setMultiple(true);
+        
+        $fields->addFieldToTab('Root.Frameworks', $frames = ListboxField::create('Frameworks', 'Selected frameworks', $this->Parent()
+            ->Frameworks()
+            ->map('ID', 'Title')
+            ->toArray(),
+            $value = ""));
+        
+        $frames->setMultiple(true);
         
         return $fields;
     }
