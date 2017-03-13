@@ -1,0 +1,4 @@
+# Ignore sensible defaults
+_*/
+/error-*.html
+/_combinedfiles/

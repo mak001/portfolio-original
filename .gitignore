@@ -11,6 +11,11 @@ _ss_environment.php
 /vendor/
 
 #silverstripe
+_resampled/
+/assets/_combinedfiles/
+/assets/Uploads/
+/assets/web.config
+/assets/error-*.html
 /dms-assets/
 /framework/
 /cms/
@@ -23,6 +28,7 @@ _ss_environment.php
 /mysite/_configDB.php
 *.orig
 *.log
+
 /themes/simple/
 /better-image/
 /colorpicker/
