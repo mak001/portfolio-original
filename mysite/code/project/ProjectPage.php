@@ -12,7 +12,9 @@ class ProjectPage extends Page {
     
     private static $db = array(
         'Teaser' => 'Text',
-        'MainImageHasLogo' => 'Boolean'
+        'MainImageHasLogo' => 'Boolean',
+        'SourceLink' => 'Varchar',
+        'ViewLink' => 'Varchar'
     );
     
     private static $many_many = array(
@@ -41,21 +43,27 @@ class ProjectPage extends Page {
             $field->setFolderName('project-photos');
         }
 
-        $fields->addFieldToTab('Root.Languages', $langs = ListboxField::create('Languages', 'Selected languages', $this->Parent()
-            ->Languages()
-            ->map('ID', 'Title')
-            ->toArray(),
-            $value = ""));
+        $fields->addFieldsToTab('Root.Used', array(
+            $langs = ListboxField::create('Languages', 'Selected languages', $this->Parent()
+                ->ProjectLanguages()
+                ->map('ID', 'Title')
+                ->toArray(),
+                $value = ""),
+            
+            $frames = ListboxField::create('Frameworks', 'Selected frameworks', $this->Parent()
+                ->ProjectFrameworks()
+                ->map('ID', 'Title')
+                ->toArray(),
+                $value = "")
+        ));
         
         $langs->setMultiple(true);
-        
-        $fields->addFieldToTab('Root.Frameworks', $frames = ListboxField::create('Frameworks', 'Selected frameworks', $this->Parent()
-            ->Frameworks()
-            ->map('ID', 'Title')
-            ->toArray(),
-            $value = ""));
-        
         $frames->setMultiple(true);
+        
+        $fields->addFieldsToTab('Root.Links', array(
+            TextField::create('SourceLink'),
+            TextField::create('ViewLink')
+        ));
         
         return $fields;
     }
@@ -79,6 +87,16 @@ class ProjectPage extends Page {
 }
 
 class ProjectPage_Controller extends Page_Controller {
+    
+    private static $allowed_actions = array(
+        'show'
+    );
+    
+    public function show(SS_HTTPRequest $request) {
+        
+        // TODO
+        return $this->renderWith(array('ShowProject', 'Page'));
+    }
     
 }
 

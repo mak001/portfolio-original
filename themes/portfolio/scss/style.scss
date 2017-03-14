@@ -104,3 +104,17 @@ main .jumbotron#project-header {
 footer {
 	@include fixedBG($mainImage);
 }
+
+#project-show {
+	
+	main {
+		position: relative;
+		
+		iframe {
+			position:absolute;
+			width:100%;
+			height:100%;
+		}
+	}
+	
+}

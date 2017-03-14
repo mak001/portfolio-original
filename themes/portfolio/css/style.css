@@ -115,3 +115,10 @@ footer {
   background: url(../images/red-to-green.svg);
   background-position: center;
   background-attachment: fixed; }
+
+#project-show main {
+  position: relative; }
+  #project-show main iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%; }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2017 at 08:52 PM
+-- Generation Time: Mar 14, 2017 at 12:48 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `ss_portfolio`
 --
+CREATE DATABASE IF NOT EXISTS `ss_portfolio` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `ss_portfolio`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `errorpage`
 --
 
+DROP TABLE IF EXISTS `errorpage`;
 CREATE TABLE `errorpage` (
   `ID` int(11) NOT NULL,
   `ErrorCode` int(11) NOT NULL DEFAULT '0'
@@ -45,6 +48,7 @@ INSERT INTO `errorpage` (`ID`, `ErrorCode`) VALUES
 -- Table structure for table `errorpage_live`
 --
 
+DROP TABLE IF EXISTS `errorpage_live`;
 CREATE TABLE `errorpage_live` (
   `ID` int(11) NOT NULL,
   `ErrorCode` int(11) NOT NULL DEFAULT '0'
@@ -64,6 +68,7 @@ INSERT INTO `errorpage_live` (`ID`, `ErrorCode`) VALUES
 -- Table structure for table `errorpage_versions`
 --
 
+DROP TABLE IF EXISTS `errorpage_versions`;
 CREATE TABLE `errorpage_versions` (
   `ID` int(11) NOT NULL,
   `RecordID` int(11) NOT NULL DEFAULT '0',
@@ -85,6 +90,7 @@ INSERT INTO `errorpage_versions` (`ID`, `RecordID`, `Version`, `ErrorCode`) VALU
 -- Table structure for table `file`
 --
 
+DROP TABLE IF EXISTS `file`;
 CREATE TABLE `file` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('File','Folder','Image','Image_Cached') DEFAULT 'File',
@@ -119,6 +125,7 @@ INSERT INTO `file` (`ID`, `ClassName`, `LastEdited`, `Created`, `Name`, `Title`,
 -- Table structure for table `group`
 --
 
+DROP TABLE IF EXISTS `group`;
 CREATE TABLE `group` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('Group') DEFAULT 'Group',
@@ -147,6 +154,7 @@ INSERT INTO `group` (`ID`, `ClassName`, `LastEdited`, `Created`, `Title`, `Descr
 -- Table structure for table `group_members`
 --
 
+DROP TABLE IF EXISTS `group_members`;
 CREATE TABLE `group_members` (
   `ID` int(11) NOT NULL,
   `GroupID` int(11) NOT NULL DEFAULT '0',
@@ -166,6 +174,7 @@ INSERT INTO `group_members` (`ID`, `GroupID`, `MemberID`) VALUES
 -- Table structure for table `group_roles`
 --
 
+DROP TABLE IF EXISTS `group_roles`;
 CREATE TABLE `group_roles` (
   `ID` int(11) NOT NULL,
   `GroupID` int(11) NOT NULL DEFAULT '0',
@@ -178,6 +187,7 @@ CREATE TABLE `group_roles` (
 -- Table structure for table `loginattempt`
 --
 
+DROP TABLE IF EXISTS `loginattempt`;
 CREATE TABLE `loginattempt` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('LoginAttempt') DEFAULT 'LoginAttempt',
@@ -195,6 +205,7 @@ CREATE TABLE `loginattempt` (
 -- Table structure for table `member`
 --
 
+DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('Member') DEFAULT 'Member',
@@ -226,7 +237,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`ID`, `ClassName`, `LastEdited`, `Created`, `FirstName`, `Surname`, `Email`, `TempIDHash`, `TempIDExpired`, `Password`, `RememberLoginToken`, `NumVisit`, `LastVisited`, `AutoLoginHash`, `AutoLoginExpired`, `PasswordEncryption`, `Salt`, `PasswordExpiry`, `LockedOutUntil`, `Locale`, `FailedLoginCount`, `DateFormat`, `TimeFormat`) VALUES
-(1, 'Member', '2017-03-09 16:29:20', '2017-03-09 16:26:16', 'Default Admin', NULL, 'Matthew.Koerber', '11a25d3b91599a7b3fb6ef46cc8465f289a026c3', '2017-03-12 16:29:20', '$2y$10$24ae7b637c8828c857ec0u334BlO1sY6Y/ITBhUfiMWzFdsQs9Wf.', NULL, 1, '2017-03-13 15:49:37', NULL, NULL, 'blowfish', '10$24ae7b637c8828c857ec06', NULL, NULL, 'en_US', 0, NULL, NULL);
+(1, 'Member', '2017-03-09 16:29:20', '2017-03-09 16:26:16', 'Default Admin', NULL, 'Matthew.Koerber', '11a25d3b91599a7b3fb6ef46cc8465f289a026c3', '2017-03-12 16:29:20', '$2y$10$24ae7b637c8828c857ec0u334BlO1sY6Y/ITBhUfiMWzFdsQs9Wf.', NULL, 1, '2017-03-13 19:47:11', NULL, NULL, 'blowfish', '10$24ae7b637c8828c857ec06', NULL, NULL, 'en_US', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -234,6 +245,7 @@ INSERT INTO `member` (`ID`, `ClassName`, `LastEdited`, `Created`, `FirstName`, `
 -- Table structure for table `memberpassword`
 --
 
+DROP TABLE IF EXISTS `memberpassword`;
 CREATE TABLE `memberpassword` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('MemberPassword') DEFAULT 'MemberPassword',
@@ -258,6 +270,7 @@ INSERT INTO `memberpassword` (`ID`, `ClassName`, `LastEdited`, `Created`, `Passw
 -- Table structure for table `permission`
 --
 
+DROP TABLE IF EXISTS `permission`;
 CREATE TABLE `permission` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('Permission') DEFAULT 'Permission',
@@ -286,6 +299,7 @@ INSERT INTO `permission` (`ID`, `ClassName`, `LastEdited`, `Created`, `Code`, `A
 -- Table structure for table `permissionrole`
 --
 
+DROP TABLE IF EXISTS `permissionrole`;
 CREATE TABLE `permissionrole` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('PermissionRole') DEFAULT 'PermissionRole',
@@ -301,6 +315,7 @@ CREATE TABLE `permissionrole` (
 -- Table structure for table `permissionrolecode`
 --
 
+DROP TABLE IF EXISTS `permissionrolecode`;
 CREATE TABLE `permissionrolecode` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('PermissionRoleCode') DEFAULT 'PermissionRoleCode',
@@ -316,6 +331,7 @@ CREATE TABLE `permissionrolecode` (
 -- Table structure for table `projectframework`
 --
 
+DROP TABLE IF EXISTS `projectframework`;
 CREATE TABLE `projectframework` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('ProjectFramework') DEFAULT 'ProjectFramework',
@@ -342,6 +358,7 @@ INSERT INTO `projectframework` (`ID`, `ClassName`, `LastEdited`, `Created`, `Tit
 -- Table structure for table `projectlanguage`
 --
 
+DROP TABLE IF EXISTS `projectlanguage`;
 CREATE TABLE `projectlanguage` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('ProjectLanguage') DEFAULT 'ProjectLanguage',
@@ -377,24 +394,27 @@ INSERT INTO `projectlanguage` (`ID`, `ClassName`, `LastEdited`, `Created`, `Titl
 -- Table structure for table `projectpage`
 --
 
+DROP TABLE IF EXISTS `projectpage`;
 CREATE TABLE `projectpage` (
   `ID` int(11) NOT NULL,
   `ProjectHolderID` int(11) NOT NULL DEFAULT '0',
   `MainPhotoID` int(11) NOT NULL DEFAULT '0',
   `MainImageHasLogo` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `Teaser` mediumtext
+  `Teaser` mediumtext,
+  `SourceLink` varchar(50) DEFAULT NULL,
+  `ViewLink` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `projectpage`
 --
 
-INSERT INTO `projectpage` (`ID`, `ProjectHolderID`, `MainPhotoID`, `MainImageHasLogo`, `Teaser`) VALUES
-(7, 0, 4, 0, NULL),
-(8, 0, 5, 1, NULL),
-(10, 0, 7, 0, NULL),
-(11, 0, 8, 0, NULL),
-(12, 0, 9, 0, NULL);
+INSERT INTO `projectpage` (`ID`, `ProjectHolderID`, `MainPhotoID`, `MainImageHasLogo`, `Teaser`, `SourceLink`, `ViewLink`) VALUES
+(7, 0, 4, 0, NULL, NULL, 'http://matthewkoerber.com/InnPizza/'),
+(8, 0, 5, 1, NULL, NULL, 'http://matthewkoerber.com/corestrengthrehab'),
+(10, 0, 7, 0, NULL, NULL, NULL),
+(11, 0, 8, 0, NULL, NULL, NULL),
+(12, 0, 9, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -402,6 +422,7 @@ INSERT INTO `projectpage` (`ID`, `ProjectHolderID`, `MainPhotoID`, `MainImageHas
 -- Table structure for table `projectpage_frameworks`
 --
 
+DROP TABLE IF EXISTS `projectpage_frameworks`;
 CREATE TABLE `projectpage_frameworks` (
   `ID` int(11) NOT NULL,
   `ProjectPageID` int(11) NOT NULL DEFAULT '0',
@@ -422,6 +443,7 @@ INSERT INTO `projectpage_frameworks` (`ID`, `ProjectPageID`, `ProjectFrameworkID
 -- Table structure for table `projectpage_languages`
 --
 
+DROP TABLE IF EXISTS `projectpage_languages`;
 CREATE TABLE `projectpage_languages` (
   `ID` int(11) NOT NULL,
   `ProjectPageID` int(11) NOT NULL DEFAULT '0',
@@ -458,24 +480,27 @@ INSERT INTO `projectpage_languages` (`ID`, `ProjectPageID`, `ProjectLanguageID`)
 -- Table structure for table `projectpage_live`
 --
 
+DROP TABLE IF EXISTS `projectpage_live`;
 CREATE TABLE `projectpage_live` (
   `ID` int(11) NOT NULL,
   `ProjectHolderID` int(11) NOT NULL DEFAULT '0',
   `MainPhotoID` int(11) NOT NULL DEFAULT '0',
   `MainImageHasLogo` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `Teaser` mediumtext
+  `Teaser` mediumtext,
+  `SourceLink` varchar(50) DEFAULT NULL,
+  `ViewLink` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `projectpage_live`
 --
 
-INSERT INTO `projectpage_live` (`ID`, `ProjectHolderID`, `MainPhotoID`, `MainImageHasLogo`, `Teaser`) VALUES
-(7, 0, 4, 0, NULL),
-(8, 0, 5, 1, NULL),
-(10, 0, 7, 0, NULL),
-(11, 0, 8, 0, NULL),
-(12, 0, 9, 0, NULL);
+INSERT INTO `projectpage_live` (`ID`, `ProjectHolderID`, `MainPhotoID`, `MainImageHasLogo`, `Teaser`, `SourceLink`, `ViewLink`) VALUES
+(7, 0, 4, 0, NULL, NULL, 'http://matthewkoerber.com/InnPizza/'),
+(8, 0, 5, 1, NULL, NULL, 'http://matthewkoerber.com/corestrengthrehab'),
+(10, 0, 7, 0, NULL, NULL, NULL),
+(11, 0, 8, 0, NULL, NULL, NULL),
+(12, 0, 9, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -483,6 +508,7 @@ INSERT INTO `projectpage_live` (`ID`, `ProjectHolderID`, `MainPhotoID`, `MainIma
 -- Table structure for table `projectpage_versions`
 --
 
+DROP TABLE IF EXISTS `projectpage_versions`;
 CREATE TABLE `projectpage_versions` (
   `ID` int(11) NOT NULL,
   `RecordID` int(11) NOT NULL DEFAULT '0',
@@ -490,36 +516,40 @@ CREATE TABLE `projectpage_versions` (
   `ProjectHolderID` int(11) NOT NULL DEFAULT '0',
   `MainPhotoID` int(11) NOT NULL DEFAULT '0',
   `MainImageHasLogo` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `Teaser` mediumtext
+  `Teaser` mediumtext,
+  `SourceLink` varchar(50) DEFAULT NULL,
+  `ViewLink` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `projectpage_versions`
 --
 
-INSERT INTO `projectpage_versions` (`ID`, `RecordID`, `Version`, `ProjectHolderID`, `MainPhotoID`, `MainImageHasLogo`, `Teaser`) VALUES
-(1, 7, 1, 0, 0, 0, NULL),
-(2, 7, 2, 0, 0, 0, NULL),
-(3, 7, 3, 0, 0, 0, NULL),
-(4, 8, 1, 0, 0, 0, NULL),
-(5, 8, 2, 0, 0, 0, NULL),
-(6, 7, 4, 0, 4, 0, NULL),
-(7, 10, 1, 0, 0, 0, NULL),
-(8, 10, 2, 0, 0, 0, NULL),
-(9, 11, 1, 0, 0, 0, NULL),
-(10, 11, 2, 0, 0, 0, NULL),
-(11, 12, 1, 0, 0, 0, NULL),
-(12, 12, 2, 0, 0, 0, NULL),
-(13, 8, 3, 0, 5, 0, NULL),
-(14, 10, 3, 0, 6, 0, NULL),
-(15, 10, 4, 0, 7, 0, NULL),
-(16, 11, 3, 0, 8, 0, NULL),
-(17, 12, 3, 0, 9, 0, NULL),
-(18, 8, 4, 0, 5, 1, NULL),
-(19, 8, 5, 0, 5, 1, NULL),
-(20, 12, 4, 0, 9, 0, NULL),
-(21, 8, 6, 0, 5, 1, 'Teaser test text here\r\n\r\nsecond p?'),
-(22, 8, 7, 0, 5, 1, 'Teaser test text here\r\n\r\nsecond p?');
+INSERT INTO `projectpage_versions` (`ID`, `RecordID`, `Version`, `ProjectHolderID`, `MainPhotoID`, `MainImageHasLogo`, `Teaser`, `SourceLink`, `ViewLink`) VALUES
+(1, 7, 1, 0, 0, 0, NULL, NULL, NULL),
+(2, 7, 2, 0, 0, 0, NULL, NULL, NULL),
+(3, 7, 3, 0, 0, 0, NULL, NULL, NULL),
+(4, 8, 1, 0, 0, 0, NULL, NULL, NULL),
+(5, 8, 2, 0, 0, 0, NULL, NULL, NULL),
+(6, 7, 4, 0, 4, 0, NULL, NULL, NULL),
+(7, 10, 1, 0, 0, 0, NULL, NULL, NULL),
+(8, 10, 2, 0, 0, 0, NULL, NULL, NULL),
+(9, 11, 1, 0, 0, 0, NULL, NULL, NULL),
+(10, 11, 2, 0, 0, 0, NULL, NULL, NULL),
+(11, 12, 1, 0, 0, 0, NULL, NULL, NULL),
+(12, 12, 2, 0, 0, 0, NULL, NULL, NULL),
+(13, 8, 3, 0, 5, 0, NULL, NULL, NULL),
+(14, 10, 3, 0, 6, 0, NULL, NULL, NULL),
+(15, 10, 4, 0, 7, 0, NULL, NULL, NULL),
+(16, 11, 3, 0, 8, 0, NULL, NULL, NULL),
+(17, 12, 3, 0, 9, 0, NULL, NULL, NULL),
+(18, 8, 4, 0, 5, 1, NULL, NULL, NULL),
+(19, 8, 5, 0, 5, 1, NULL, NULL, NULL),
+(20, 12, 4, 0, 9, 0, NULL, NULL, NULL),
+(21, 8, 6, 0, 5, 1, 'Teaser test text here\r\n\r\nsecond p?', NULL, NULL),
+(22, 8, 7, 0, 5, 1, 'Teaser test text here\r\n\r\nsecond p?', NULL, NULL),
+(23, 8, 8, 0, 5, 1, NULL, NULL, 'http://matthewkoerber.com/corestrengthrehab'),
+(24, 7, 5, 0, 4, 0, NULL, NULL, 'http://matthewkoerber.com/InnPizza/');
 
 -- --------------------------------------------------------
 
@@ -527,6 +557,7 @@ INSERT INTO `projectpage_versions` (`ID`, `RecordID`, `Version`, `ProjectHolderI
 -- Table structure for table `redirectorpage`
 --
 
+DROP TABLE IF EXISTS `redirectorpage`;
 CREATE TABLE `redirectorpage` (
   `ID` int(11) NOT NULL,
   `RedirectionType` enum('Internal','External') DEFAULT 'Internal',
@@ -540,6 +571,7 @@ CREATE TABLE `redirectorpage` (
 -- Table structure for table `redirectorpage_live`
 --
 
+DROP TABLE IF EXISTS `redirectorpage_live`;
 CREATE TABLE `redirectorpage_live` (
   `ID` int(11) NOT NULL,
   `RedirectionType` enum('Internal','External') DEFAULT 'Internal',
@@ -553,6 +585,7 @@ CREATE TABLE `redirectorpage_live` (
 -- Table structure for table `redirectorpage_versions`
 --
 
+DROP TABLE IF EXISTS `redirectorpage_versions`;
 CREATE TABLE `redirectorpage_versions` (
   `ID` int(11) NOT NULL,
   `RecordID` int(11) NOT NULL DEFAULT '0',
@@ -568,6 +601,7 @@ CREATE TABLE `redirectorpage_versions` (
 -- Table structure for table `siteconfig`
 --
 
+DROP TABLE IF EXISTS `siteconfig`;
 CREATE TABLE `siteconfig` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('SiteConfig') DEFAULT 'SiteConfig',
@@ -596,6 +630,7 @@ INSERT INTO `siteconfig` (`ID`, `ClassName`, `LastEdited`, `Created`, `Title`, `
 -- Table structure for table `siteconfig_createtoplevelgroups`
 --
 
+DROP TABLE IF EXISTS `siteconfig_createtoplevelgroups`;
 CREATE TABLE `siteconfig_createtoplevelgroups` (
   `ID` int(11) NOT NULL,
   `SiteConfigID` int(11) NOT NULL DEFAULT '0',
@@ -608,6 +643,7 @@ CREATE TABLE `siteconfig_createtoplevelgroups` (
 -- Table structure for table `siteconfig_editorgroups`
 --
 
+DROP TABLE IF EXISTS `siteconfig_editorgroups`;
 CREATE TABLE `siteconfig_editorgroups` (
   `ID` int(11) NOT NULL,
   `SiteConfigID` int(11) NOT NULL DEFAULT '0',
@@ -620,6 +656,7 @@ CREATE TABLE `siteconfig_editorgroups` (
 -- Table structure for table `siteconfig_viewergroups`
 --
 
+DROP TABLE IF EXISTS `siteconfig_viewergroups`;
 CREATE TABLE `siteconfig_viewergroups` (
   `ID` int(11) NOT NULL,
   `SiteConfigID` int(11) NOT NULL DEFAULT '0',
@@ -632,6 +669,7 @@ CREATE TABLE `siteconfig_viewergroups` (
 -- Table structure for table `sitetree`
 --
 
+DROP TABLE IF EXISTS `sitetree`;
 CREATE TABLE `sitetree` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage','ProjectHolder','ProjectPage') DEFAULT 'SiteTree',
@@ -664,9 +702,9 @@ INSERT INTO `sitetree` (`ID`, `ClassName`, `LastEdited`, `Created`, `URLSegment`
 (2, 'Page', '2017-03-11 21:40:05', '2017-03-09 16:26:14', 'bio', 'Bio', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.</p>', NULL, NULL, 1, 1, 3, 0, 0, NULL, 'Inherit', 'Inherit', 2, 0),
 (4, 'ErrorPage', '2017-03-11 21:40:05', '2017-03-09 16:26:15', 'page-not-found', 'Page not found', NULL, '<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>', NULL, NULL, 0, 0, 5, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
 (5, 'ErrorPage', '2017-03-11 21:40:05', '2017-03-09 16:26:16', 'server-error', 'Server error', NULL, '<p>Sorry, there was a problem with handling your request.</p>', NULL, NULL, 0, 0, 6, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
-(6, 'ProjectHolder', '2017-03-11 21:40:05', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, NULL, NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 2, 0),
-(7, 'ProjectPage', '2017-03-13 00:46:51', '2017-03-11 17:20:16', 'village-inn-pizza', 'Village Inn Pizza', NULL, '<p>Made for the Integrated Web Concepts course. The team consisted of two graphics designers, a marketer, and a developer. <span><br></span></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 4, 6),
-(8, 'ProjectPage', '2017-03-13 00:36:39', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 7, 6),
+(6, 'ProjectHolder', '2017-03-13 21:47:24', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, '<p>Check out the [languagelink]langauges[/languagelink] I have used!</p><p>Check out the [frameworklink]frameworks[/frameworklink] I have used!</p>', NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 6, 0),
+(7, 'ProjectPage', '2017-03-14 00:46:47', '2017-03-11 17:20:16', 'village-inn-pizza', 'Village Inn Pizza', NULL, '<p>Made for the Integrated Web Concepts course. The team consisted of two graphics designers, a marketer, and a developer. <span><br></span></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 5, 6),
+(8, 'ProjectPage', '2017-03-13 23:55:50', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 8, 6),
 (9, 'Page', '2017-03-12 00:52:38', '2017-03-11 20:04:25', 'resume', 'Résumé', NULL, '<h3 style="text-align: center;">Education</h3><p><span id="docs-internal-guid-99587225-bfea-2d30-888c-e6de9951714a"><span>Lakeshore Technical College, Cleveland, Wisconsin (Web and Software Development)</span></span></p><ul><li>Currently enrolled in Web and Software Developer program</li>\n<li>Dean’s List Fall 2015, Spring 2016, Fall 2016</li>\n</ul><p> </p><p><span id="docs-internal-guid-99587225-bfea-2d30-888c-e6de9951714a">Lakeshore Technical College, Cleveland, Wisconsin (Mechanical Design)</span></p><ul><li><span id="docs-internal-guid-99587225-bff0-a942-cb22-6ce5fab83ebe"><span>graduated, Spring 2013</span></span></li>\n<li><span id="docs-internal-guid-99587225-bff0-e6a7-ce49-b502fd325c03"><span>Dean’s List, Fall 2011, Spring 2012, Fall 2012</span></span></li>\n</ul><p> </p><p><span><span><span id="docs-internal-guid-99587225-bff4-7525-ea24-bb818188eccf"><span>Graduated from Sheboygan Christian School, 2011</span></span></span></span></p><p> </p><h3 style="text-align: center;"><span><span><span><span>Skills</span></span></span></span></h3><ul><li>Knowledge of CSS, SCSS, Bootstrap, and HTML</li>\n<li>Knowledge of PHP, SQL, Wordpress, SilverStripe</li>\n<li>Knowledge of APS.Net and C#</li>\n<li>Knowledge of Java and Android development</li>\n<li>Knowledge of git</li>\n<li>Basic knowledge of Microsoft Access</li>\n</ul><p> </p>', NULL, NULL, 1, 1, 4, 0, 0, NULL, 'Inherit', 'Inherit', 16, 0),
 (10, 'ProjectPage', '2017-03-12 15:26:16', '2017-03-11 23:35:47', 'memory', 'Memory', NULL, NULL, NULL, NULL, 1, 1, 4, 0, 0, NULL, 'Inherit', 'Inherit', 4, 6),
 (11, 'ProjectPage', '2017-03-12 17:04:36', '2017-03-11 23:39:27', 'one-person-battleship', 'One Person Battleship', NULL, NULL, NULL, NULL, 1, 1, 5, 0, 0, NULL, 'Inherit', 'Inherit', 3, 6),
@@ -678,6 +716,7 @@ INSERT INTO `sitetree` (`ID`, `ClassName`, `LastEdited`, `Created`, `URLSegment`
 -- Table structure for table `sitetree_editorgroups`
 --
 
+DROP TABLE IF EXISTS `sitetree_editorgroups`;
 CREATE TABLE `sitetree_editorgroups` (
   `ID` int(11) NOT NULL,
   `SiteTreeID` int(11) NOT NULL DEFAULT '0',
@@ -690,6 +729,7 @@ CREATE TABLE `sitetree_editorgroups` (
 -- Table structure for table `sitetree_imagetracking`
 --
 
+DROP TABLE IF EXISTS `sitetree_imagetracking`;
 CREATE TABLE `sitetree_imagetracking` (
   `ID` int(11) NOT NULL,
   `SiteTreeID` int(11) NOT NULL DEFAULT '0',
@@ -703,6 +743,7 @@ CREATE TABLE `sitetree_imagetracking` (
 -- Table structure for table `sitetree_linktracking`
 --
 
+DROP TABLE IF EXISTS `sitetree_linktracking`;
 CREATE TABLE `sitetree_linktracking` (
   `ID` int(11) NOT NULL,
   `SiteTreeID` int(11) NOT NULL DEFAULT '0',
@@ -716,6 +757,7 @@ CREATE TABLE `sitetree_linktracking` (
 -- Table structure for table `sitetree_live`
 --
 
+DROP TABLE IF EXISTS `sitetree_live`;
 CREATE TABLE `sitetree_live` (
   `ID` int(11) NOT NULL,
   `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage','ProjectHolder','ProjectPage') DEFAULT 'SiteTree',
@@ -748,9 +790,9 @@ INSERT INTO `sitetree_live` (`ID`, `ClassName`, `LastEdited`, `Created`, `URLSeg
 (2, 'Page', '2017-03-11 20:04:15', '2017-03-09 16:26:14', 'bio', 'Bio', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.</p>', NULL, NULL, 1, 1, 3, 0, 0, NULL, 'Inherit', 'Inherit', 2, 0),
 (4, 'ErrorPage', '2017-03-09 16:26:28', '2017-03-09 16:26:15', 'page-not-found', 'Page not found', NULL, '<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>', NULL, NULL, 0, 0, 5, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
 (5, 'ErrorPage', '2017-03-09 16:26:16', '2017-03-09 16:26:16', 'server-error', 'Server error', NULL, '<p>Sorry, there was a problem with handling your request.</p>', NULL, NULL, 0, 0, 6, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
-(6, 'ProjectHolder', '2017-03-11 17:19:15', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, NULL, NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 2, 0),
-(7, 'ProjectPage', '2017-03-13 00:46:52', '2017-03-11 17:20:16', 'village-inn-pizza', 'Village Inn Pizza', NULL, '<p>Made for the Integrated Web Concepts course. The team consisted of two graphics designers, a marketer, and a developer. <span><br></span></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 4, 6),
-(8, 'ProjectPage', '2017-03-13 00:36:40', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 7, 6),
+(6, 'ProjectHolder', '2017-03-13 21:47:24', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, '<p>Check out the [languagelink]langauges[/languagelink] I have used!</p><p>Check out the [frameworklink]frameworks[/frameworklink] I have used!</p>', NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 6, 0),
+(7, 'ProjectPage', '2017-03-14 00:46:48', '2017-03-11 17:20:16', 'village-inn-pizza', 'Village Inn Pizza', NULL, '<p>Made for the Integrated Web Concepts course. The team consisted of two graphics designers, a marketer, and a developer. <span><br></span></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 5, 6),
+(8, 'ProjectPage', '2017-03-13 23:55:50', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 8, 6),
 (9, 'Page', '2017-03-12 00:52:38', '2017-03-11 20:04:25', 'resume', 'Résumé', NULL, '<h3 style="text-align: center;">Education</h3><p><span id="docs-internal-guid-99587225-bfea-2d30-888c-e6de9951714a"><span>Lakeshore Technical College, Cleveland, Wisconsin (Web and Software Development)</span></span></p><ul><li>Currently enrolled in Web and Software Developer program</li>\n<li>Dean’s List Fall 2015, Spring 2016, Fall 2016</li>\n</ul><p> </p><p><span id="docs-internal-guid-99587225-bfea-2d30-888c-e6de9951714a">Lakeshore Technical College, Cleveland, Wisconsin (Mechanical Design)</span></p><ul><li><span id="docs-internal-guid-99587225-bff0-a942-cb22-6ce5fab83ebe"><span>graduated, Spring 2013</span></span></li>\n<li><span id="docs-internal-guid-99587225-bff0-e6a7-ce49-b502fd325c03"><span>Dean’s List, Fall 2011, Spring 2012, Fall 2012</span></span></li>\n</ul><p> </p><p><span><span><span id="docs-internal-guid-99587225-bff4-7525-ea24-bb818188eccf"><span>Graduated from Sheboygan Christian School, 2011</span></span></span></span></p><p> </p><h3 style="text-align: center;"><span><span><span><span>Skills</span></span></span></span></h3><ul><li>Knowledge of CSS, SCSS, Bootstrap, and HTML</li>\n<li>Knowledge of PHP, SQL, Wordpress, SilverStripe</li>\n<li>Knowledge of APS.Net and C#</li>\n<li>Knowledge of Java and Android development</li>\n<li>Knowledge of git</li>\n<li>Basic knowledge of Microsoft Access</li>\n</ul><p> </p>', NULL, NULL, 1, 1, 4, 0, 0, NULL, 'Inherit', 'Inherit', 16, 0),
 (10, 'ProjectPage', '2017-03-12 15:26:17', '2017-03-11 23:35:47', 'memory', 'Memory', NULL, NULL, NULL, NULL, 1, 1, 4, 0, 0, NULL, 'Inherit', 'Inherit', 4, 6),
 (11, 'ProjectPage', '2017-03-12 17:04:36', '2017-03-11 23:39:27', 'one-person-battleship', 'One Person Battleship', NULL, NULL, NULL, NULL, 1, 1, 5, 0, 0, NULL, 'Inherit', 'Inherit', 3, 6),
@@ -762,6 +804,7 @@ INSERT INTO `sitetree_live` (`ID`, `ClassName`, `LastEdited`, `Created`, `URLSeg
 -- Table structure for table `sitetree_versions`
 --
 
+DROP TABLE IF EXISTS `sitetree_versions`;
 CREATE TABLE `sitetree_versions` (
   `ID` int(11) NOT NULL,
   `RecordID` int(11) NOT NULL DEFAULT '0',
@@ -839,7 +882,13 @@ INSERT INTO `sitetree_versions` (`ID`, `RecordID`, `Version`, `WasPublished`, `A
 (43, 8, 5, 1, 1, 1, 'ProjectPage', '2017-03-12 01:00:34', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 6),
 (44, 12, 4, 1, 1, 1, 'ProjectPage', '2017-03-12 01:00:41', '2017-03-11 23:40:36', 'ticket-dominator', 'Ticket Dominator', NULL, NULL, NULL, NULL, 1, 1, 3, 0, 0, NULL, 'Inherit', 'Inherit', 6),
 (45, 8, 6, 1, 1, 1, 'ProjectPage', '2017-03-12 01:09:09', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 6),
-(46, 8, 7, 1, 1, 1, 'ProjectPage', '2017-03-12 01:10:25', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 6);
+(46, 8, 7, 1, 1, 1, 'ProjectPage', '2017-03-12 01:10:25', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 6),
+(47, 6, 3, 1, 1, 1, 'ProjectHolder', '2017-03-13 21:36:25', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, '<p>[languagelink]Langauges[/languagelink]</p>', NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 0),
+(48, 6, 4, 1, 1, 1, 'ProjectHolder', '2017-03-13 21:37:28', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, '<p>Check out the [languagelink]Langauges[/languagelink] I have used!</p>', NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 0),
+(49, 6, 5, 1, 1, 1, 'ProjectHolder', '2017-03-13 21:39:33', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, '<p>Check out the [languagelink]Langauges[/languagelink] I have used!</p><p>Check out the [frameworklink]frameworks[/frameworklink] I have used!</p>', NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 0),
+(50, 6, 6, 1, 1, 1, 'ProjectHolder', '2017-03-13 21:47:24', '2017-03-11 17:19:02', 'projects', 'Projects', NULL, '<p>Check out the [languagelink]langauges[/languagelink] I have used!</p><p>Check out the [frameworklink]frameworks[/frameworklink] I have used!</p>', NULL, NULL, 1, 1, 7, 0, 0, NULL, 'Inherit', 'Inherit', 0),
+(51, 8, 8, 1, 1, 1, 'ProjectPage', '2017-03-13 23:55:50', '2017-03-11 19:56:57', 'core-strength-rehab', 'Core Strength Rehab', NULL, NULL, NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 6),
+(52, 7, 5, 1, 1, 1, 'ProjectPage', '2017-03-14 00:46:47', '2017-03-11 17:20:16', 'village-inn-pizza', 'Village Inn Pizza', NULL, '<p>Made for the Integrated Web Concepts course. The team consisted of two graphics designers, a marketer, and a developer. <span><br></span></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 6);
 
 -- --------------------------------------------------------
 
@@ -847,6 +896,7 @@ INSERT INTO `sitetree_versions` (`ID`, `RecordID`, `Version`, `WasPublished`, `A
 -- Table structure for table `sitetree_viewergroups`
 --
 
+DROP TABLE IF EXISTS `sitetree_viewergroups`;
 CREATE TABLE `sitetree_viewergroups` (
   `ID` int(11) NOT NULL,
   `SiteTreeID` int(11) NOT NULL DEFAULT '0',
@@ -859,6 +909,7 @@ CREATE TABLE `sitetree_viewergroups` (
 -- Table structure for table `virtualpage`
 --
 
+DROP TABLE IF EXISTS `virtualpage`;
 CREATE TABLE `virtualpage` (
   `ID` int(11) NOT NULL,
   `VersionID` int(11) NOT NULL DEFAULT '0',
@@ -871,6 +922,7 @@ CREATE TABLE `virtualpage` (
 -- Table structure for table `virtualpage_live`
 --
 
+DROP TABLE IF EXISTS `virtualpage_live`;
 CREATE TABLE `virtualpage_live` (
   `ID` int(11) NOT NULL,
   `VersionID` int(11) NOT NULL DEFAULT '0',
@@ -883,6 +935,7 @@ CREATE TABLE `virtualpage_live` (
 -- Table structure for table `virtualpage_versions`
 --
 
+DROP TABLE IF EXISTS `virtualpage_versions`;
 CREATE TABLE `virtualpage_versions` (
   `ID` int(11) NOT NULL,
   `RecordID` int(11) NOT NULL DEFAULT '0',
@@ -1304,7 +1357,7 @@ ALTER TABLE `projectpage_live`
 -- AUTO_INCREMENT for table `projectpage_versions`
 --
 ALTER TABLE `projectpage_versions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `redirectorpage`
 --
@@ -1369,7 +1422,7 @@ ALTER TABLE `sitetree_live`
 -- AUTO_INCREMENT for table `sitetree_versions`
 --
 ALTER TABLE `sitetree_versions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `sitetree_viewergroups`
 --
