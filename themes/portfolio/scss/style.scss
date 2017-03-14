@@ -12,6 +12,11 @@ body {
 	flex-direction: column;
 }
 
+a:focus {
+	color: inherit;
+	text-decoration: inherit;
+}
+
 header {
 	a {
 		text-decoration: none;

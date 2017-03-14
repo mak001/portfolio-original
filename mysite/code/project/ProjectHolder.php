@@ -128,7 +128,7 @@ JS
                 ->First();
             
             if (! $framework) {
-                return $this->httpError(404, 'That language was not found');
+                return $this->httpError(404, 'That framewok was not found');
             }
             
             $this->projectList = $this->projectList->filter(array(
