@@ -35,6 +35,14 @@
     	</div>
 	</div>
 	<div class="container">
+		<% if $ViewLink %>
+			<a href="$ShowLink">View</a>
+		<% end_if %>
+		<% if $SourceLink %>
+			<a href="SourceLink">View source</a>
+		<% end_if %>
+	</div>
+	<div class="container">
 		$Content
 	</div>
 </div>

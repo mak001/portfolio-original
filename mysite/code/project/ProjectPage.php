@@ -2,6 +2,8 @@
 
 class ProjectPage extends Page {
     
+    const SHOW_ROUTE = "show";
+    
     private static $can_be_root = false;
     private static $allowed_children = 'none';
     
@@ -82,6 +84,11 @@ class ProjectPage extends Page {
         }
         
         return $image->SetCroppedSize($w, $h, 'left', 'top')->Link();
+    }
+    
+    public function ShowLink()
+    {
+        return $this->Link($this::SHOW_ROUTE);
     }
     
 }
