@@ -105,8 +105,8 @@ JS
         } else {
             
             $this->languageList = $this->ProjectLanguages()
-                ->leftJoin('projectpage_languages', 'projectlanguage.ID = projectpage_languages.ProjectLanguageID')
-                ->exclude('projectpage_languages.ProjectPageID', '0')
+                ->leftJoin('ProjectPage_Languages', 'ProjectLanguage.ID = ProjectPage_Languages.ProjectLanguageID')
+                ->exclude('ProjectPage_Languages.ProjectPageID', '0')
                 ->distinct(true);
             
             $this->addToBreadCrumb($this->LanguageLink(), "Languages");
@@ -144,8 +144,8 @@ JS
         } else {
             
             $this->frameworkList = $this->ProjectFrameworks()
-                ->leftJoin('projectpage_frameworks', 'projectframework.ID = projectpage_frameworks.ProjectFrameworkID')
-                ->exclude('projectpage_frameworks.ProjectPageID', '0')
+                ->leftJoin('ProjectPage_Frameworks', 'ProjectFramework.ID = ProjectPage_Frameworks.ProjectFrameworkID')
+                ->exclude('ProjectPage_Frameworks.ProjectPageID', '0')
                 ->distinct(true);
             
             $this->addToBreadCrumb($this->FrameworkLink(), "Frameworks");

@@ -53,6 +53,9 @@ main {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1; }
+  main .container img {
+    max-width: 100%;
+    height: auto; }
 
 main .jumbotron#project-header {
   background-size: cover;
