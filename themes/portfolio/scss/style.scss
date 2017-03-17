@@ -90,8 +90,13 @@ main .jumbotron#project-header {
 		@include outline;
 	}
 	
-}.overlay {
-	@include overlay(0.35);
+	&.overlay {
+		@include overlay(0.35);
+	}
+
+	&.img-center {
+		background-position: center center;
+	}
 }
 
 .card.language {

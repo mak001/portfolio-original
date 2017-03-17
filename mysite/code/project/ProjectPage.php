@@ -15,8 +15,13 @@ class ProjectPage extends Page {
     private static $db = array(
         'Teaser' => 'Text',
         'MainImageHasLogo' => 'Boolean',
+        'MainImageCropMiddle' => 'Boolean',
         'SourceLink' => 'Varchar',
         'ViewLink' => 'Varchar'
+    );
+    
+    private static $has_many = array(
+        'Photos' => 'Photo'
     );
     
     private static $many_many = array(
@@ -31,18 +36,24 @@ class ProjectPage extends Page {
         
         $photoFields = array();
         $fields->addFieldsToTab('Root.Photos', array(
-            $photoFields[] = UploadField::create('MainPhoto'),
-            CheckBoxField::create('MainImageHasLogo')
+            $photoFields['main'] = UploadField::create('MainPhoto'),
+            CheckBoxField::create('MainImageHasLogo'),
+            CheckBoxField::create('MainImageCropMiddle', 'Crop main image from the middle'),
+            GridField::create('Photos', 'Photos', $this->Photos(), GridFieldConfig_RecordEditor::create())
         ));
         
-        foreach($photoFields as $field) {
+        foreach($photoFields as $key => $field) {
             $field->getValidator()->setAllowedExtensions(array(
                 'png',
                 'gif',
                 'jpg',
                 'jpeg'
             ));
-            $field->setFolderName('project-photos');
+            if ($key == main) {
+                $field->setFolderName('project-photos/main');
+            } else {
+                $field->setFolderName('project-photos');
+            }
         }
 
         $fields->addFieldsToTab('Root.Used', array(
@@ -73,7 +84,7 @@ class ProjectPage extends Page {
     public function MainPhotoResizeLink($w, $h) {
         $image = $this->MainPhoto();
         
-        if ($image == null) {
+        if ($image == null && !$image->exists()) {
             return "http://placehold.it/{$w}x{$h}";
         }
         
@@ -83,12 +94,29 @@ class ProjectPage extends Page {
             $image->setHeight($h);
         }
         
-        return $image->SetCroppedSize($w, $h, 'left', 'top')->Link();
+        $v = $this->MainImageCropMiddle ? 'center' : 'top';
+
+        $return = $image->SetCroppedSize($w, $h, 'left', $v);
+        if ($return != null) {
+            return $return->Link();
+        } else {
+            return "http://placehold.it/{$w}x{$h}";
+        }
     }
     
     public function ShowLink()
     {
         return $this->Link($this::SHOW_ROUTE);
+    }
+    
+    public function ExtraClasses() {
+        $classes = "";
+        
+        if ($this->MainImageCropMiddle) {
+            $classes .= "img-center";
+        }
+        
+        return $classes;
     }
     
 }
@@ -98,6 +126,25 @@ class ProjectPage_Controller extends Page_Controller {
     private static $allowed_actions = array(
         'show'
     );
+    
+    public function init() {
+        parent::init();
+        
+        ShortcodeParser::get('default')->register('img', function($args, $text, $parser, $tag) {
+            $img;
+            
+            if (count($this->Photos()) == 0) {
+                return '';
+                
+            } else if ($args['img'] < 0 || count($this->Photos()) <= $args['img']) {
+                $img = $this->Photos()[0];
+                
+            } else {
+                $img = $this->Photos()[$args['img']];
+            }
+            return '<img class="content-img" src="' . $img->Image()->Link() . '">'; 
+        });
+    }
     
     public function show(SS_HTTPRequest $request) {
         

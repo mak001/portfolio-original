@@ -47,9 +47,9 @@ class Page_Controller extends ContentController {
 		    return '<a href="' . ProjectHolder::get()->First()->LanguageLink() . '">' . $text . '</a>';
 		});
 		
-		    ShortcodeParser::get('default')->register('frameworklink', function($args, $text, $parser, $tag) {
-		        return '<a href="' . ProjectHolder::get()->First()->FrameworkLink() . '">' . $text . '</a>';
-		    });
+	    ShortcodeParser::get('default')->register('frameworklink', function($args, $text, $parser, $tag) {
+	        return '<a href="' . ProjectHolder::get()->First()->FrameworkLink() . '">' . $text . '</a>';
+	    });
 	}
 
 }
