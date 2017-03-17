@@ -2,8 +2,20 @@
 	<% if not Pages || Pages.Count == 1 %>
     	<div>
     		$Content
-    	</div>
+    	</div>	
 	<% end_if %>
+	<div class="mb-3 progress project-holder-nav" style="height: 25px;">
+		<div class="progress-bar bg-success h6" style="width: 33%">
+			<a href="$Link">Projects</a>
+		</div>
+  		<div class="progress-bar bg-warning h6" style="width: 34%">
+  			<a href="$LanguageLink">Langauges</a>
+  		</div>
+  		<div class="progress-bar bg-info h6" style="width:33%">
+  			<a href="$FrameworkLink">Frameworks</a>
+  		</div>
+  	</div>
+    	
 	<div class="row">
 	
 		<% if $PaginatedLanguages %>

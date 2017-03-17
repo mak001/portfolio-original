@@ -116,6 +116,19 @@ main .jumbotron#project-header {
 	@include buttonLinks(framework);
 }
 
+.project-holder-nav {
+	height: 25px;
+	
+	.progress-bar {
+		height: 100%;
+		
+		a {
+			vertical-align: middle;
+			color: white;
+		}
+	}
+}
+
 footer {
 	@include fixedBG($mainImage);
 }

@@ -119,6 +119,14 @@ main .jumbotron#project-header {
   .framework-container:hover {
     text-decoration: none; }
 
+.project-holder-nav {
+  height: 25px; }
+  .project-holder-nav .progress-bar {
+    height: 100%; }
+    .project-holder-nav .progress-bar a {
+      vertical-align: middle;
+      color: white; }
+
 footer {
   background: url(../images/red-to-green.svg);
   background-position: center;
