@@ -117,14 +117,22 @@ main .jumbotron#project-header {
 }
 
 .project-holder-nav {
-	height: 25px;
+	height: auto;
 	
 	.progress-bar {
 		height: 100%;
 		
 		a {
+			display: block;
+			padding: 5px;
 			vertical-align: middle;
 			color: white;
+			@include outline(1);
+			
+			&:hover {
+				text-decoration: none;
+			}
+
 		}
 	}
 }

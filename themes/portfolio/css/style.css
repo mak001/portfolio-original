@@ -120,12 +120,18 @@ main .jumbotron#project-header {
     text-decoration: none; }
 
 .project-holder-nav {
-  height: 25px; }
+  height: auto; }
   .project-holder-nav .progress-bar {
     height: 100%; }
     .project-holder-nav .progress-bar a {
+      display: block;
+      padding: 5px;
       vertical-align: middle;
-      color: white; }
+      color: white;
+      color: white;
+      text-shadow: -1px -1px 0 black, -1px 0px 0 black, -1px 1px 0 black, 0px -1px 0 black, 0px 0px 0 black, 0px 1px 0 black, 1px -1px 0 black, 1px 0px 0 black, 1px 1px 0 black; }
+      .project-holder-nav .progress-bar a:hover {
+        text-decoration: none; }
 
 footer {
   background: url(../images/red-to-green.svg);
