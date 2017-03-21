@@ -1,3 +1,4 @@
+@import "bootstrap/_variables";
 @import "_variables";
 @import "_mixins";
 
@@ -118,9 +119,13 @@ main .jumbotron#project-header {
 
 .project-holder-nav {
 	height: auto;
+	flex-direction: column;
+	background-color: inherit;
 	
 	.progress-bar {
 		height: 100%;
+		flex-grow: 1;
+		border-radius: inherit;
 		
 		a {
 			display: block;
@@ -134,6 +139,15 @@ main .jumbotron#project-header {
 			}
 
 		}
+	
+		@media (min-width: map-get($grid-breakpoints, md)) { 
+			border-radius: 0;
+		}
+	
+	}
+
+	@media (min-width: map-get($grid-breakpoints, md)) { 
+		flex-direction: row;
 	}
 }
 

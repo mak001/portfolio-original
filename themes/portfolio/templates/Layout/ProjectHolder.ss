@@ -5,13 +5,13 @@
     	</div>	
 	<% end_if %>
 	<div class="mb-3 progress project-holder-nav">
-		<div class="progress-bar bg-success h6 mb-0" style="width: 33%">
+		<div class="progress-bar bg-success h6 mb-3 mb-md-0">
 			<a href="$Link">Projects</a>
 		</div>
-  		<div class="progress-bar bg-warning h6 mb-0" style="width: 34%">
+  		<div class="progress-bar bg-warning h6 mb-3 mb-md-0">
   			<a href="$LanguageLink">Langauges</a>
   		</div>
-  		<div class="progress-bar bg-info h6 mb-0" style="width:33%">
+  		<div class="progress-bar bg-info h6 mb-3 mb-md-0">
   			<a href="$FrameworkLink">Frameworks</a>
   		</div>
   	</div>
