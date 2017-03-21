@@ -125,6 +125,7 @@ main .jumbotron#project-header {
 	.progress-bar {
 		height: 100%;
 		flex-grow: 1;
+		flex-basis: 0;
 		border-radius: inherit;
 		
 		a {
