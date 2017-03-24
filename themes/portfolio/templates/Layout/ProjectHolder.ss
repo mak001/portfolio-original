@@ -6,13 +6,13 @@
 	<% end_if %>
 	<div class="mb-3 progress project-holder-nav">
 		<div class="progress-bar bg-success h6 mb-3 mb-md-0">
-			<a href="$Link">Projects</a>
+			<a href="$Link" class="p-2">Projects</a>
 		</div>
   		<div class="progress-bar bg-warning h6 mb-3 mb-md-0">
-  			<a href="$LanguageLink">Langauges</a>
+  			<a href="$LanguageLink" class="p-2">Langauges</a>
   		</div>
   		<div class="progress-bar bg-info h6 mb-3 mb-md-0">
-  			<a href="$FrameworkLink">Frameworks</a>
+  			<a href="$FrameworkLink" class="p-2">Frameworks</a>
   		</div>
   	</div>
     	
@@ -55,7 +55,9 @@
             	<div class="col-md-6 col-xl-4">
             		<div class="card my-1 project">
 
-            			<img class="card-img-top img-fluid" src="$MainPhotoResizeLink(510, 200)">
+            			<img class="card-img-top img-fluid" 
+            				src="$MainPhotoResizeLink(510, 200)"
+            				alt="$MainPhoto.ALT">
             			
             			<div class="card-block">
             				<h4 class="card-title">$Title</h4>

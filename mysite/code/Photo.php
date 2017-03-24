@@ -2,6 +2,10 @@
 
 class Photo extends DataObject {
     
+    private static $db = array(
+        'Caption' => 'Text'
+    );
+    
     private static $has_one = array(
         'Image' => 'Image',
         'Page' => 'Page'
@@ -9,7 +13,8 @@ class Photo extends DataObject {
     
     public function getCMSFields() {
         $fields = FieldList::create(array(
-            $upload = UploadField::create('Image')
+            $upload = UploadField::create('Image'),
+            TextareaField::create('Caption')
         )); 
         
         $upload->getValidator()->setAllowedExtensions(array(

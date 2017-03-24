@@ -132,6 +132,7 @@ class ProjectPage_Controller extends Page_Controller {
         
         ShortcodeParser::get('default')->register('img', function($args, $text, $parser, $tag) {
             $img;
+            $classes = "figure";
             
             if (count($this->Photos()) == 0) {
                 return '';
@@ -142,7 +143,15 @@ class ProjectPage_Controller extends Page_Controller {
             } else {
                 $img = $this->Photos()[$args['img']];
             }
-            return '<img class="content-img" src="' . $img->Image()->Link() . '">'; 
+            
+            if ($args['order'] == 'first') {
+                $classes .= ' flex-first';
+            }
+            
+            return '<figure class="' . $classes . '">' . 
+                    '<img class="figure-img img-fluid mb-0 pb-2" src="' . $img->Image()->Link() . '" alt="' . $img->Image()->ALT . '">' .
+                    '<figcaption class="figure-caption">' . $img->Caption . '</figcaption>' .
+                '</figure>'; 
         });
     }
     

@@ -1,5 +1,5 @@
 <% if Menu(1) %>
-    <nav class="navbar navbar-toggleable-sm sticky-top py-0" role="navigation">
+    <nav class="navbar navbar-toggleable-sm sticky-top py-0">
     	<div class="container p-0 m-0">
     		<button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

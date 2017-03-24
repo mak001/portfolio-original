@@ -34,7 +34,7 @@
     		<% end_if %>
     	</div>
 	</div>
-	<div class="container">
+	<div class="mb-3">
 		<% if $ViewLink %>
 			<a href="$ShowLink">View</a>
 		<% end_if %>
@@ -42,7 +42,7 @@
 			<a href="SourceLink">View source</a>
 		<% end_if %>
 	</div>
-	<div class="container">
+	<div class="row project-info">
 		$Content
 	</div>
 </div>
