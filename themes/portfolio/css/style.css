@@ -7848,6 +7848,9 @@ main .jumbotron#project-header {
   .framework-container:hover {
     text-decoration: none; }
 
+figure img {
+  width: 100%; }
+
 .project-holder-nav {
   height: auto;
   -webkit-box-orient: vertical;
