@@ -34,13 +34,13 @@
     		<% end_if %>
     	</div>
 	</div>
-	<div class="mb-3">
+	<div class="mb-3 text-center">
 		<% if $ViewLink %>
-			<a href="$ShowLink">View</a>
+			<a href="$ShowLink" class="btn btn-primary">View</a>
 		<% end_if %>
 		<% if $Sources %>
 			<% loop $Sources %>
-				<a href="$Link" target="_blank">$Title</a>
+				<a href="$Link" target="_blank" class="btn btn-info">$Title</a>
 			<% end_loop %>
 		<% end_if %>
 	</div>

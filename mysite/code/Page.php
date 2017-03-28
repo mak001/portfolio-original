@@ -6,6 +6,10 @@ class Page extends SiteTree {
 
 	private static $has_one = array(
 	);
+	
+	public function TopLink() {
+	    return $this->Link("#top");
+	}
 
 }
 class Page_Controller extends ContentController {
