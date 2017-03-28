@@ -149,6 +149,25 @@ figure {
 	}	
 }
 
+.modal-open {
+	padding: 0 !important;
+}
+
+.figure-modal {
+	padding: 0 !important;
+	
+	.modal-dialog {
+		max-width: initial;
+		width: 98%;
+		height: 92%;
+		padding: 0;
+		
+		.modal-content {
+			height: 99%;
+		}
+	}
+}
+
 .project-holder-nav {
 	height: auto;
 	flex-direction: column;

@@ -7,10 +7,6 @@ class Page extends SiteTree {
 	private static $has_one = array(
 	);
 	
-	public function TopLink() {
-	    return $this->Link("#top");
-	}
-
 }
 class Page_Controller extends ContentController {
 
@@ -44,7 +40,6 @@ class Page_Controller extends ContentController {
 		Requirements::javascript("{$this->ThemeDir()}/javascript/tether.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/bootstrap.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery.matchHeight.js");
-	
 		
 		ShortcodeParser::get('default')->register('languagelink', function($args, $text, $parser, $tag) {
 		    return '<a href="' . ProjectHolder::get()->First()->LanguageLink() . '">' . $text . '</a>';

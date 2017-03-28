@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 text-center">
-				<a href="$TopLink">Back to top</a>
+				<a href="#top">Back to top</a>
 			</div>
 			<div class="col-md-8">
 				<a href="$BaseHref" class="brand" rel="home">$SiteConfig.Title</a>

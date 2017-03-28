@@ -127,6 +127,8 @@ class ProjectPage_Controller extends Page_Controller {
         'show'
     );
     
+    private $imgId = 0;
+    
     public function init() {
         parent::init();
         
@@ -148,10 +150,13 @@ class ProjectPage_Controller extends Page_Controller {
                 $classes .= ' first';
             }
             
-            return '<figure class="' . $classes . '">' . 
-                    '<img class="figure-img img-fluid mb-0 pb-2" src="' . $img->Image()->Link() . '" alt="' . $img->Image()->ALT . '">' .
-                    '<figcaption class="figure-caption">' . $img->Caption . '</figcaption>' .
-                '</figure>'; 
+            $values = new ArrayData(array(
+                'Classes' => $classes,
+                'Image' => $img,
+                'Id' => $imgId
+            ));
+            
+            return $values->renderWith('Figure');
         });
     }
     
