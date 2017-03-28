@@ -118,15 +118,26 @@ main .jumbotron#project-header {
 }
 
 .project-info {
-	
-	p {
-		@extend .col-md-6;
-		@extend .col-lg-7;
-	}
 
 	figure {
-		@extend .col-md-6;
-		@extend .col-lg-5;
+		@extend .col-md-6; 
+		@extend .col-lg-5; 
+		float: right;
+		
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			&.first {
+				float: left;
+				padding-left: 0;
+			}
+		
+			&:not(.first) {
+				padding-right: 0;
+			}
+			
+			&:after {
+				clear:both;
+			}
+		}
 	}
 }
 

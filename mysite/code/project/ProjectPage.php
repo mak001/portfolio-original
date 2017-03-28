@@ -145,7 +145,7 @@ class ProjectPage_Controller extends Page_Controller {
             }
             
             if ($args['order'] == 'first') {
-                $classes .= ' flex-first';
+                $classes .= ' first';
             }
             
             return '<figure class="' . $classes . '">' . 

@@ -42,7 +42,8 @@
 			<a href="SourceLink">View source</a>
 		<% end_if %>
 	</div>
-	<div class="row project-info">
+	
+	<div class="project-info">
 		$Content
 	</div>
 </div>
