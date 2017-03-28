@@ -38,8 +38,10 @@
 		<% if $ViewLink %>
 			<a href="$ShowLink">View</a>
 		<% end_if %>
-		<% if $SourceLink %>
-			<a href="SourceLink">View source</a>
+		<% if $Sources %>
+			<% loop $Sources %>
+				<a href="$Link" target="_blank">$Title</a>
+			<% end_loop %>
 		<% end_if %>
 	</div>
 	

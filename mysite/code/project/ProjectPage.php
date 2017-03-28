@@ -16,12 +16,12 @@ class ProjectPage extends Page {
         'Teaser' => 'Text',
         'MainImageHasLogo' => 'Boolean',
         'MainImageCropMiddle' => 'Boolean',
-        'SourceLink' => 'Varchar',
         'ViewLink' => 'Varchar'
     );
     
     private static $has_many = array(
-        'Photos' => 'Photo'
+        'Photos' => 'Photo',
+        'Sources' => 'ProjectSource'
     );
     
     private static $many_many = array(
@@ -74,8 +74,8 @@ class ProjectPage extends Page {
         $frames->setMultiple(true);
         
         $fields->addFieldsToTab('Root.Links', array(
-            TextField::create('SourceLink'),
-            TextField::create('ViewLink')
+            TextField::create('ViewLink'),
+            GridField::create('Sources', 'Sources', $this->Sources(), GridFieldConfig_RecordEditor::create())
         ));
         
         return $fields;
