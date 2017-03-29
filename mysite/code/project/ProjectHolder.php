@@ -60,6 +60,9 @@ class ProjectHolder_Controller extends Page_Controller
     {
         parent::init();
         
+        Requirements::css(ASSETS_DIR . '/css/frameworks.css');
+        Requirements::css(ASSETS_DIR . '/css/languages.css');
+        
         Requirements::customScript(<<<JS
             (function($) {
                 $('.card-text').matchHeight({

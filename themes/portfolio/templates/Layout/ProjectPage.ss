@@ -16,9 +16,7 @@
     		<% if $Languages %>
     			<h4>Languages</h4>
     			<% loop $Languages %>
-        			<a href="$Link" class="language-container">
-        				<div class="language" style="background-color:#$BGColor">$Title</div>
-    				</a>
+        			<a href="$Link" class="btn btn-info $CssClass">$Title</a>
     			<% end_loop %>
     		<% end_if %>
     	</div>
@@ -27,9 +25,7 @@
     		<% if $Frameworks %>
     			<h4>Frameworks</h4>
     			<% loop $Frameworks %>
-        			<a href="$Link" class="framework-container">
-        				<div class="framework" style="background-color:#$BGColor">$Title</div>
-    				</a>
+        			<a href="$Link" class="btn btn-info $CssClass">$Title</a>
     			<% end_loop %>
     		<% end_if %>
     	</div>

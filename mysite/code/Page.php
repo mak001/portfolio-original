@@ -35,7 +35,6 @@ class Page_Controller extends ContentController {
 		
 		Requirements::css("{$this->ThemeDir()}/css/style.css");
 		
-		
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery-3.1.1.slim.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/tether.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/bootstrap.min.js");
