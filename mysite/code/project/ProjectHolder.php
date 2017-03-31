@@ -60,8 +60,10 @@ class ProjectHolder_Controller extends Page_Controller
     {
         parent::init();
         
-        Requirements::css(ASSETS_DIR . '/css/frameworks.css');
-        Requirements::css(ASSETS_DIR . '/css/languages.css');
+        Requirements::css(ASSETS_DIR . '/css/uses.css');
+        
+        //Requirements::css(ASSETS_DIR . '/css/frameworks.css');
+        //Requirements::css(ASSETS_DIR . '/css/languages.css');
         
         Requirements::customScript(<<<JS
             (function($) {
@@ -108,7 +110,7 @@ JS
         } else {
             
             $this->languageList = $this->ProjectLanguages()
-                ->leftJoin('ProjectPage_Languages', 'ProjectLanguage.ID = ProjectPage_Languages.ProjectLanguageID')
+                ->leftJoin('ProjectPage_Languages', 'ProjectUses.ID = ProjectPage_Languages.ProjectLanguageID')
                 ->exclude('ProjectPage_Languages.ProjectPageID', '0')
                 ->distinct(true);
             
@@ -147,7 +149,7 @@ JS
         } else {
             
             $this->frameworkList = $this->ProjectFrameworks()
-                ->leftJoin('ProjectPage_Frameworks', 'ProjectFramework.ID = ProjectPage_Frameworks.ProjectFrameworkID')
+                ->leftJoin('ProjectPage_Frameworks', 'ProjectUses.ID = ProjectPage_Frameworks.ProjectFrameworkID')
                 ->exclude('ProjectPage_Frameworks.ProjectPageID', '0')
                 ->distinct(true);
             

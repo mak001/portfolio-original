@@ -15,13 +15,13 @@ class ProjectPage extends Page {
     private static $db = array(
         'Teaser' => 'Text',
         'MainImageHasLogo' => 'Boolean',
-        'MainImageCropMiddle' => 'Boolean',
-        'ViewLink' => 'Varchar'
+        'MainImageCropMiddle' => 'Boolean'
     );
     
     private static $has_many = array(
         'Photos' => 'Photo',
-        'Sources' => 'ProjectSource'
+        'Sources' => 'ProjectSource',
+        'ViewLinks' => 'ProjectView'
     );
     
     private static $many_many = array(
@@ -74,7 +74,7 @@ class ProjectPage extends Page {
         $frames->setMultiple(true);
         
         $fields->addFieldsToTab('Root.Links', array(
-            TextField::create('ViewLink'),
+            GridField::create('View Links', 'View Links', $this->ViewLinks(), GridFieldConfig_RecordEditor::create()),
             GridField::create('Sources', 'Sources', $this->Sources(), GridFieldConfig_RecordEditor::create())
         ));
         
@@ -104,9 +104,12 @@ class ProjectPage extends Page {
         }
     }
     
-    public function ShowLink()
+    public function ShowLink($id)
     {
-        return $this->Link($this::SHOW_ROUTE);
+        if ($id == null || $id == '') {
+            return $this->Link($this::SHOW_ROUTE);
+        }
+        return $this->Link($this::SHOW_ROUTE) . '/' . $id;
     }
     
     public function ExtraClasses() {
@@ -128,12 +131,12 @@ class ProjectPage_Controller extends Page_Controller {
     );
     
     private $imgId = 0;
+    private $viewId = 1;
     
     public function init() {
         parent::init();
         
-        Requirements::css(ASSETS_DIR . '/css/frameworks.css');
-        Requirements::css(ASSETS_DIR . '/css/languages.css');
+        Requirements::css(ASSETS_DIR . '/css/uses.css');
         
         ShortcodeParser::get('default')->register('img', function($args, $text, $parser, $tag) {
             $img;
@@ -164,9 +167,29 @@ class ProjectPage_Controller extends Page_Controller {
     }
     
     public function show(SS_HTTPRequest $request) {
+        if ($request->param('ID')) {
+            $viewId = $request->param('ID');
+        } else {
+            $viewId = 1;
+        }
         
+        $links = $this->ViewLinks()->toArray();
+        
+        if (count($links) == 0) {
+            return $this->httpError(404, 'That view page was not found');
+        }
+        
+        if (0 < $viewId - 1 || count($links) < $viewId) {
+            $viewId = 1;
+        }
+        
+        $values = new ArrayData(array(
+            'Title' => $this->Title,
+            'Link' => $this->Link(),
+            'ViewLink' => $links[$viewId - 1]->Link
+        ));
         // TODO
-        return $this->renderWith(array('ShowProject', 'Page'));
+        return $values->renderWith(array('ShowProject', 'Page'));
     }
     
 }
