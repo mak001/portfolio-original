@@ -179,7 +179,7 @@ class ProjectPage_Controller extends Page_Controller {
             return $this->httpError(404, 'That view page was not found');
         }
         
-        if (0 < $viewId - 1 || count($links) < $viewId) {
+        if ($viewId < 1 || count($links) < $viewId) {
             $viewId = 1;
         }
         
