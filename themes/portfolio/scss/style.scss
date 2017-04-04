@@ -161,7 +161,7 @@ figure {
 	}
 }
 
-.project-holder-nav {
+.project-holder-nav, .local-nav {
 	height: auto;
 	flex-direction: column;
 	background-color: inherit;
@@ -193,6 +193,18 @@ figure {
 	@media (min-width: map-get($grid-breakpoints, md)) { 
 		flex-direction: row;
 	}
+}
+
+.has-local-nav {
+	
+	h1, .h1, h2, .h2,  h3, .h3, h4, .h4 {
+		a {
+			padding-top: 1.75em;
+			margin-top: -1.75em;
+			display: block;
+		}
+	}
+	
 }
 
 footer {
