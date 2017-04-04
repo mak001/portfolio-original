@@ -19,16 +19,20 @@ class PageWithLocalNav extends Page {
     }
     
     private function getClass($i) {
-        if ($i % 3) {
+        if ($i % 3 == 0) {
             return 'bg-warning';
         }
         
-        if ($i % 2) {
+        if ($i % 2 == 0) {
             return 'bg-info';
         }
         
-        return 'bg-succsess';
+        return 'bg-success';
         
+    }
+    
+    public function LocalNavCacheKey() {
+        return $this->ID . '-' . 'local-nav';
     }
     
 }
