@@ -35,6 +35,9 @@ class PageWithLocalNav extends Page {
         return $this->ID . '-' . 'local-nav';
     }
     
+    public function ShouldUpdate() {
+        return Permission::checkMember($member, 'CMS_ACCESS');
+    }
 }
 
 class PageWithLocalNav_Controller extends Page_Controller {

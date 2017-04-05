@@ -165,6 +165,7 @@ figure {
 	height: auto;
 	flex-direction: column;
 	background-color: inherit;
+	z-index: $zindex-navbar;
 	
 	.progress-bar {
 		height: 100%;
@@ -199,9 +200,10 @@ figure {
 	
 	h1, .h1, h2, .h2,  h3, .h3, h4, .h4 {
 		a {
-			padding-top: 1.75em;
-			margin-top: -1.75em;
 			display: block;
+			visibility: hidden;
+			position:relative;
+			top: -1.75em;
 		}
 	}
 	
