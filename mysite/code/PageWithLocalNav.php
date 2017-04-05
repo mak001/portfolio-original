@@ -5,7 +5,7 @@ class PageWithLocalNav extends Page {
     public function Anchors() {
         $c = $this->Content;
         
-        preg_match_all("/<a name=\"(.*)\">.*<\/a>/i", $c, $anchors);
+        preg_match_all("/<a name=\"(.*?)\">.*?<\/a>/i", $c, $anchors);
         
         $list = array();
         for ($i = 0; $i < count($anchors[1]); $i++) {
