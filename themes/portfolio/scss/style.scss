@@ -101,6 +101,10 @@ main .jumbotron#project-header {
 	}
 }
 
+main p {
+	text-indent: 5em;
+}
+
 .card.language {
 	
 	.card-title {
@@ -127,7 +131,7 @@ main .jumbotron#project-header {
 				padding-right: 0;
 			}
 			
-			&:after {
+			&::after {
 				clear:both;
 			}
 		}
@@ -207,6 +211,13 @@ figure {
 		}
 	}
 	
+}
+
+.btn-container {
+	
+	.btn {
+		margin-bottom: 0.25em;
+	}
 }
 
 footer {

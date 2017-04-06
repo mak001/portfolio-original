@@ -11,7 +11,7 @@
         </div>
     <% end_if %>
 	
-	<div class="row">
+	<div class="row btn-container">
 		<div class="container text-center text-md-left col-md-6 mb-3">
     		<% if $Languages %>
     			<h4>Languages</h4>
