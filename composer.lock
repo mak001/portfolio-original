@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f24302928a440b5d0daf11e36b7c221",
+    "content-hash": "d047eaca964c45872a8f31bee52a61ba",
     "packages": [
+        {
+            "name": "axllent/silverstripe-trailing-slash",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/axllent/silverstripe-trailing-slash.git",
+                "reference": "1719a3a8d4da2e2a8bf0476323a1528d47c3b122"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/axllent/silverstripe-trailing-slash/zipball/1719a3a8d4da2e2a8bf0476323a1528d47c3b122",
+                "reference": "1719a3a8d4da2e2a8bf0476323a1528d47c3b122",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "3.*"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "The MIT License (MIT)"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Slooten",
+                    "homepage": "http://www.axllent.org/"
+                }
+            ],
+            "description": "Ensure that a single trailing slash is always added to the URL",
+            "homepage": "https://github.com/axllent/silverstripe-trailing-slash",
+            "keywords": [
+                "seo",
+                "silverstripe",
+                "urls"
+            ],
+            "time": "2015-12-21 20:16:37"
+        },
         {
             "name": "composer/installers",
             "version": "v1.2.0",
@@ -888,6 +925,7 @@
         "zauberfisch/silverstripe-better-image": 20,
         "tractorcow/silverstripe-colorpicker": 20,
         "exadium/breadcrumbnavigation": 20,
+        "axllent/silverstripe-trailing-slash": 20,
         "phpunit/phpunit": 0
     },
     "prefer-stable": true,
