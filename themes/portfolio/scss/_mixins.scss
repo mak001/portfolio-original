@@ -2,6 +2,8 @@
 	background: $bg;
 	background-position: center;
 	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 @mixin overlay($opacity, $color...) {
