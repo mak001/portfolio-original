@@ -33,13 +33,13 @@
 	<div class="mb-3 text-center">
 		<% if $ViewLinks %>
 			<% loop $ViewLinks %>
-				<a href="$ShowLink($Pos)" class="btn btn-primary">$Title</a>
+				<a href="$ShowLink($Pos)" class="btn btn-info">$Title</a>
 			<% end_loop %>
 		<% end_if %>
 		
 		<% if $Sources %>
 			<% loop $Sources %>
-				<a href="$Link" target="_blank" class="btn btn-info">$Title</a>
+				<a href="$Link" target="_blank" class="btn btn-success">$Title</a>
 			<% end_loop %>
 		<% end_if %>
 	</div>

@@ -74,6 +74,10 @@ class ProjectHolder_Controller extends Page_Controller
                 $('.card-title').matchHeight({
                     byRow: false
                 });
+            
+                $('.card').matchHeight({
+                    byRow: false
+                });
             })(jQuery)
 JS
 );

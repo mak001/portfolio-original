@@ -55,9 +55,11 @@
             	<div class="col-md-6 col-xl-4">
             		<div class="card my-1 project">
 
+						<a href="$Link">
             			<img class="card-img-top img-fluid" 
             				src="$MainPhotoResizeLink(510, 200)"
             				alt="$MainPhoto.ALT">
+            			</a>
             			
             			<div class="card-block">
             				<h4 class="card-title">$Title</h4>
@@ -68,7 +70,25 @@
                 					$Content.FirstSentence
                 				<% end_if %>
             				</p>
-            				<a href="$Link" class="btn btn-primary">Details...</a>
+            				<div class="btn-container">
+            					<a href="$Link" class="btn btn-primary">Details...</a>
+            				</div>
+            				
+            				<div class="btn-container">
+	            				<% if $ViewLinks %>
+	            					<% loop $ViewLinks %>
+	            						<a href="$ShowLink($Pos)" class="btn btn-info">$Title</a>
+	            					<% end_loop %>
+	            				<% end_if %>
+            				</div>
+            				
+            				<div class="btn-container">
+	            				<% if $Sources %>
+	            					<% loop $Sources %>
+	            						<a href="$Link" class="btn btn-success">$Title</a>
+	            					<% end_loop %>
+	            				<% end_if %>
+	            			</div>
             			</div>
             		</div>
             	</div>
