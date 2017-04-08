@@ -1,4 +1,4 @@
-<% cached 'MainNav', $List('SiteTree').max('LastEdited'), $List('SiteTree').count() %>
+<%-- cached 'MainNav', $List('SiteTree').max('LastEdited'), $List('SiteTree').count() --%>
 	<% if Menu(1) %>
 	    <nav class="navbar navbar-toggleable-sm sticky-top py-0">
 	    	<div class="container p-0 m-0">
@@ -18,4 +18,4 @@
 	    	
 	    </nav>
 	<% end_if %>
-<% end_cached %>
+<%-- end_cached --%>
