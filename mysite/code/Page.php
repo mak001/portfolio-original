@@ -33,6 +33,7 @@ class Page_Controller extends ContentController {
 		// You can include any CSS or JS required by your project here.
 		// See: http://doc.silverstripe.org/framework/en/reference/requirements
 		
+		Requirements::css("{$this->ThemeDir()}/css/font-awesome.min.css");
 		Requirements::css("{$this->ThemeDir()}/css/style.css");
 		
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery-3.1.1.slim.min.js");

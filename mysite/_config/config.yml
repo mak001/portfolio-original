@@ -13,3 +13,6 @@ SSViewer:
 Image:
   extensions:
     - 'ImageExtension'
+SiteConfig:
+  extensions:
+    - 'SiteConfigExtension'

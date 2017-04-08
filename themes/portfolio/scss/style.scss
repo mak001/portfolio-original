@@ -105,6 +105,12 @@ main p {
 	text-indent: 5em;
 }
 
+.card .card-text {
+	text-indent:0;
+	text-align: justify;
+	text-align-last: left;
+}
+
 .card.language {
 	
 	.card-title {
@@ -143,7 +149,12 @@ figure {
 	
 	img {
 		width: 100%;
-	}	
+	}
+
+	figcaption {
+		text-align: justify;                
+   		text-align-last: left;
+	}
 }
 
 .modal-open {
@@ -222,6 +233,53 @@ figure {
 
 footer {
 	@include fixedBG($mainImage);
+	
+	.links {
+		display: inline-block;
+		
+		.link {
+			display: inline-block;
+			text-decoration: none;
+			@extend .mb-2;
+			
+			.icon {
+				vertical-align: middle;
+				font-size: 2.5em;
+				color: black;
+				@extend .mr-2;
+			}
+		
+			.text {
+				display: none;
+				vertical-align: middle;
+			}
+		
+			@media (min-width: map-get($grid-breakpoints, sm)) { 
+				display: block;
+				
+				.icon {
+					font-size: 2em;
+					margin: 0;
+					width: 1.25em;
+					text-align: center;
+				}
+				
+				.text {
+					display: inline-block;
+				}
+			
+				.sr-only {
+					display: none;
+				}
+			
+			}
+		}
+	
+		@media (min-width: map-get($grid-breakpoints, sm)) {
+			text-align: left;
+		}
+	
+	}
 }
 
 #project-show {
