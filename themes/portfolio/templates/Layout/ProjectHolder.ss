@@ -53,6 +53,31 @@
 			<% end_with %>
 			
 		<% else_if $PaginatedProjects %>
+			
+			<% if $SelectedLanguage %>
+				<div class="container row">
+    				<div class="col-md-8 col-lg-6 mx-auto text-center uses-header">
+    					<hr class="col-12"/>
+    					<h3>$SelectedLanguage.Title</h3>
+    					<p>$SelectedLanguage.Description</p>
+    					<hr class="col-12"/>
+    				</div>
+				</div>
+			<% end_if %>
+			
+			<% if $SelectedFramework %>
+				<div class="container row">
+    				<div class="col-md-8 col-lg-6 mx-auto text-center uses-header">
+    					<hr class="col-12"/>
+    					<h3>$SelectedFramework.Title</h3>
+    					<p>$SelectedFramework.Description</p>
+    					<hr class="col-12"/>
+    				</div>
+				</div>
+			<% end_if %>
+			
+			
+			
 			<% loop $PaginatedProjects %>
             	<div class="col-md-6 col-xl-4">
             		<div class="card my-1 project">
