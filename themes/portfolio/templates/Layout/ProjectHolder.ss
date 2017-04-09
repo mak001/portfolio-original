@@ -24,6 +24,7 @@
             		<div class="card my-1 language">
 						<h4 class="card-title" style="background-color: #$BGColor">$Title</h4>
             			<div class="card-block">
+            				<p class="card-text">$Description</p>
             				<a href="$Link" class="btn btn-primary">Projects</a>
             			</div>
             		</div>
@@ -40,6 +41,7 @@
             		<div class="card my-1 language">
 						<h4 class="card-title" style="background-color: #$BGColor">$Title</h4>
             			<div class="card-block">
+            				<p class="card-text">$Description</p>
             				<a href="$Link" class="btn btn-primary">Projects</a>
             			</div>
             		</div>
