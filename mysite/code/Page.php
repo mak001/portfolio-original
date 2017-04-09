@@ -41,6 +41,8 @@ class Page_Controller extends ContentController {
 		Requirements::javascript("{$this->ThemeDir()}/javascript/bootstrap.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery.matchHeight.js");
 		
+		Requirements::block(THIRDPARTY_DIR.'/jquery/jquery.min.js');
+		
 		ShortcodeParser::get('default')->register('languagelink', function($args, $text, $parser, $tag) {
 		    return '<a href="' . ProjectHolder::get()->First()->LanguageLink() . '">' . $text . '</a>';
 		});

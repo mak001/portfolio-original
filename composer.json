@@ -11,7 +11,9 @@
 		"zauberfisch/silverstripe-better-image": "dev-master",
 		"tractorcow/silverstripe-colorpicker": "3.0.*@dev",
 		"exadium/breadcrumbnavigation": "dev-master",
-		"axllent/silverstripe-trailing-slash": "dev-master"
+		"axllent/silverstripe-trailing-slash": "dev-master",
+		"silverstripe/googlesitemaps": "1.6.0",
+		"xini/silverstripe-googleanalytics": "3.0.1"
 	},
 	"require-dev": {
 		"phpunit/PHPUnit": "~3.7@stable"

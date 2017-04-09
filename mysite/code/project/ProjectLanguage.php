@@ -10,6 +10,10 @@ class ProjectLanguage extends ProjectUses {
         return 'lang-' . $this->URLSegment;
     }
     
+    public function getAbsURL() {
+        return $this->ProjectHolder()->LanguageLink() . '/';
+    }
+    
 }
 
 ?>

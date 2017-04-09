@@ -5,12 +5,16 @@ class ProjectUses extends DataObject {
     private static $db = array(
         'Title' => 'Varchar',
         'BGColor' => 'Color',
-        'URLSegment' => 'Varchar'
+        'URLSegment' => 'Varchar',
+        'Description' => 'Text'
     );
 
     //Add an SQL index for the URLSegment
     static $indexes = array(
-        "URLSegment" => true
+        "URLSegment" => array(
+            'type' => 'unique',
+            'value' => 'URLSegment'
+        )
     );
 
     private static $has_one = array(
@@ -23,10 +27,19 @@ class ProjectUses extends DataObject {
 
     public function getCMSFields()
     {
+        $urlsegment = new SiteTreeURLSegmentField("URLSegment", $this->fieldLabel('URLSegment'));
+        
+        $prefix = $this->getAbsURL();
+        $urlsegment->setURLPrefix($prefix);
+        
+        $helpText = _t('SiteTreeURLSegmentField.HelpChars', ' Special characters are automatically converted or removed.');
+        $urlsegment->setHelpText($helpText);
+        
         return FieldList::create(array(
             TextField::create('Title'),
-            TextField::create('URLSegment', 'URL Segment'),
-            new ColorField('BGColor', 'Background Color')
+            $urlsegment,
+            new ColorField('BGColor', 'Background Color'),
+            TextareaField::create('Description')
         ));
     }
 

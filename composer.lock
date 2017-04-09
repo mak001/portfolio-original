@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d047eaca964c45872a8f31bee52a61ba",
+    "content-hash": "f8691e7f2f9de554b0ed20f99a03a8ec",
     "packages": [
         {
             "name": "axllent/silverstripe-trailing-slash",
@@ -331,6 +331,46 @@
             "time": "2017-02-20T17:01:16+00:00"
         },
         {
+            "name": "silverstripe/googlesitemaps",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wilr/silverstripe-googlesitemaps.git",
+                "reference": "930fd7f9ac96450d9758d32c87d4d21e5dca73a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wilr/silverstripe-googlesitemaps/zipball/930fd7f9ac96450d9758d32c87d4d21e5dca73a7",
+                "reference": "930fd7f9ac96450d9758d32c87d4d21e5dca73a7",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "googlesitemaps"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io"
+                }
+            ],
+            "description": "SilverStripe support for the Google Sitemaps XML, enabling Google and other search engines to see all urls on your site. This helps your SilverStripe website rank well in search engines, and to encourage the information on your site to be discovered quickly.",
+            "homepage": "https://github.com/wilr/silverstripe-googlesitemaps",
+            "keywords": [
+                "googlesitemaps",
+                "seo",
+                "silverstripe"
+            ],
+            "time": "2016-09-26T17:43:00+00:00"
+        },
+        {
             "name": "silverstripe/reports",
             "version": "3.5.3",
             "source": {
@@ -458,6 +498,45 @@
                 "silverstripe"
             ],
             "time": "2015-01-27T20:44:50+00:00"
+        },
+        {
+            "name": "xini/silverstripe-googleanalytics",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xini/silverstripe-googleanalytics.git",
+                "reference": "a32397dcac64695e2191c519dba68e57b555bba9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xini/silverstripe-googleanalytics/zipball/a32397dcac64695e2191c519dba68e57b555bba9",
+                "reference": "a32397dcac64695e2191c519dba68e57b555bba9",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "googleanalytics"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Florian Thoma",
+                    "homepage": "http://www.innoweb.com.au"
+                }
+            ],
+            "description": "Adds Google Analytics to the site using old Asynchronous Analytics and Universal Analytics with event and download tracking as well as Google Tag Manager.",
+            "homepage": "http://github.com/xini/silverstripe-googleanalytics",
+            "keywords": [
+                "analytics",
+                "event tracking",
+                "multisites",
+                "silverstripe",
+                "tag manager"
+            ],
+            "time": "2017-04-06T06:17:43+00:00"
         },
         {
             "name": "zauberfisch/silverstripe-better-image",

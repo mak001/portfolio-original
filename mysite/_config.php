@@ -28,3 +28,5 @@ if (!Director::isDev()) {
     SS_Log::add_writer(new SS_LogFileWriter('../ss_error.log', SS_Log::ERR));
     SS_Log::add_writer(new SS_LogFileWriter('../ss_notices.log', SS_Log::NOTICE));
 }
+
+?>

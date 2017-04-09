@@ -10,6 +10,10 @@ class ProjectFramework extends ProjectUses {
         return 'frame-' . $this->URLSegment;
     }
     
+    public function getAbsURL() {
+        return $this->ProjectHolder()->FrameworkLink() . '/';
+    }
+    
 }
 
 ?>
