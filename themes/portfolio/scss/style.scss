@@ -34,7 +34,7 @@ header {
 		@include fixedBG($mainImage);
 		margin-bottom: 0;
 		
-		.display, .lead {
+		.display-4, .lead {
 			font-weight: 500;
 		}
 	}
@@ -111,9 +111,10 @@ main {
 		text-indent: 5em;
 	}
 
-	&.resume .main { 
+	&.resume .main, &.resume {
 		@extend .col-md-8;
 		@extend .col-lg-6;
+		@extend .col-xl-4;
 		margin: auto;
 		
 		p {
