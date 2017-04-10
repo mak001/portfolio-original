@@ -109,6 +109,7 @@ JS
             $this->addToBreadCrumb($language->Link(), $language->Title);
             
             return array(
+                'Title' => $this->Title . ' :: ' . $language->Title,
                 'SelectedLanguage' => $language
             );
         } else {
@@ -121,6 +122,7 @@ JS
             $this->addToBreadCrumb($this->LanguageLink(), "Languages");
             
             return array(
+                'Title' => $this->Title . ' :: Languages',
                 'SelectedLanguage' => ''
             );
         }
@@ -148,6 +150,7 @@ JS
             $this->addToBreadCrumb($framework->Link(), $framework->Title);
             
             return array(
+                'Title' => $this->Title . ' :: ' . $framework->Title,
                 'SelectedFramework' => $framework
             );
         } else {
@@ -160,6 +163,7 @@ JS
             $this->addToBreadCrumb($this->FrameworkLink(), "Frameworks");
             
             return array(
+                'Title' => $this->Title . ' :: Frameworks',
                 'SelectedFramework' => ''
             );
         }
