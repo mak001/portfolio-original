@@ -101,8 +101,14 @@ main .jumbotron#project-header {
 	}
 }
 
-main p {
-	text-indent: 5em;
+main {
+	p {
+		text-indent: 5em;
+	}
+
+	&.resume p {
+		text-indent: 0;
+	}
 }
 
 .uses-header {

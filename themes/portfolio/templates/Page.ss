@@ -14,7 +14,7 @@
 		<% include Header %>
 		<% include MainNav %>
 		
-		<main>
+		<main class="$URLSegment">
 			<% include BreadcrumbNavigationTemplate %>
 			
 			$Layout
