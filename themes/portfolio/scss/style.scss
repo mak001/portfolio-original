@@ -33,6 +33,10 @@ header {
 	.jumbotron {
 		@include fixedBG($mainImage);
 		margin-bottom: 0;
+		
+		.display, .lead {
+			font-weight: 500;
+		}
 	}
 }
 
@@ -89,11 +93,12 @@ main .jumbotron#project-header {
 	
 	
 	h1 {
-		@include outline;
+		font-weight: 500;
+		color: white;
 	}
 	
 	&.overlay {
-		@include overlay(0.35);
+		@include overlay(0.5);
 	}
 
 	&.img-center {
@@ -106,8 +111,14 @@ main {
 		text-indent: 5em;
 	}
 
-	&.resume p {
-		text-indent: 0;
+	&.resume .main { 
+		@extend .col-md-8;
+		@extend .col-lg-6;
+		margin: auto;
+		
+		p {
+			text-indent: 0;
+		}
 	}
 }
 
@@ -121,18 +132,28 @@ main {
 	}
 }
 
-.card .card-text {
-	text-indent:0;
-	text-align: justify;
-	text-align-last: left;
-}
+.card {
+	 .card-text {
+		text-indent:0;
+		text-align: justify;
+		text-align-last: left;
+	}
 
-.card.language {
-	
-	.card-title {
-		text-align: center;
-		padding: 10px 0;
-		@include outline;
+	&.uses {
+		
+		a:not(.btn) {
+			display: block;
+			
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		
+		.card-title {
+			text-align: center;
+			padding: 10px 0;
+			@include outline;
+		}
 	}
 }
 
