@@ -19,7 +19,7 @@
     				<% with $SiteConfig %>
     					<div class="links">
         					<% if $GitHubLink %>
-        						<a href="$GitHubLink" class="link" title="GitHub">
+        						<a href="$GitHubLink" class="link btn btn-outline-secondary" title="GitHub">
         							<i class="fa fa-github icon" aria-hidden="true"></i>
         							<span class="sr-only">GitHub</span>
         							<span class="text">GitHub</span>
@@ -27,7 +27,7 @@
         					<% end_if %>
         					
         					<% if $YouTubeLink %>
-        						<a href="$YouTubeLink" class="link" title="YouTube">
+        						<a href="$YouTubeLink" class="link btn btn-outline-secondary" title="YouTube">
         							<i class="fa fa-youtube-play icon" aria-hidden="true"></i>
         							<span class="sr-only">YouTube</span>
         							<span class="text">YouTube</span>
@@ -35,7 +35,7 @@
         					<% end_if %>
         					
         					<% if $TwitterLink %>
-        						<a href="$TwitterLink" class="link" title="Twitter">
+        						<a href="$TwitterLink" class="link btn btn-outline-secondary" title="Twitter">
         							<i class="fa fa-twitter icon" aria-hidden="true"></i>
         							<span class="sr-only">Twitter</span>
         							<span class="text">Twitter</span>
@@ -43,7 +43,7 @@
         					<% end_if %>
         					
         					<% if $FacebookLink %>
-        						<a href="$FacebookLink" class="link" title="Facebook">
+        						<a href="$FacebookLink" class="link btn btn-outline-secondary" title="Facebook">
         							<i class="fa fa-facebook-square icon" aria-hidden="true"></i>
         							<span class="sr-only">Facebook</span>
         							<span class="text">Facebook</span>
@@ -51,7 +51,7 @@
         					<% end_if %>
         					
         					<% if $GoogleLink %>
-        						<a href="$GoogleLink" class="link" title="Google">
+        						<a href="$GoogleLink" class="link btn btn-outline-secondary" title="Google">
         							<i class="fa fa-google icon" aria-hidden="true"></i>
         							<span class="sr-only">Google</span>
         							<span class="text">Google</span>
@@ -66,12 +66,13 @@
 			<% end_cached %>
 		</div>
 		
-		<div class="col-12 text-center">
-    		<small>
-    			Theme by Matthew Koerber / Powered by <a href="http://silverstripe.org">SilverStripe</a>
-    		</small>
+		<div class="row">
+			<div class="col-12 text-center rounded info-text">
+	    		<small>
+	    			Theme by Matthew Koerber / Powered by <a href="http://silverstripe.org">SilverStripe</a>
+	    		</small>
+			</div>
 		</div>
-		
 		
 	</div>
 </footer>

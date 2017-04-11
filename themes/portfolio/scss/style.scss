@@ -33,10 +33,34 @@ header {
 	.jumbotron {
 		@include fixedBG($mainImage);
 		margin-bottom: 0;
+		// @extend .py-0;
 		
+		/*
 		.display-4, .lead {
 			font-weight: 500;
 		}
+		*/
+		/*
+		.container {
+			background-color: rgba(255, 255, 255, 0.5);
+			@extend .py-6;
+		}
+	
+		@media (min-width: map-get($grid-breakpoints, sm)) {
+			& {
+				padding: 2rem 1rem !important; 
+			}
+
+			.container {
+				display: inline-block;
+				border-radius: 0.25rem;
+				padding-top: 0.25rem !important;
+				padding-bottom: 0.25rem !important;
+				width: auto !important;
+				margin: auto;
+			}
+		}
+		*/
 	}
 }
 
@@ -282,8 +306,17 @@ figure {
 	}
 }
 
+.info-text {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
 footer {
 	@include fixedBG($mainImage);
+	
+	a {
+		color: black;
+		font-weight: 500;
+	}
 	
 	.links {
 		display: inline-block;
@@ -293,11 +326,19 @@ footer {
 			text-decoration: none;
 			@extend .mb-2;
 			
+			color: black;
+			border-color: darken(white, 15%);
+			background-color: white;
+			
+			&:hover {
+				color: white;
+				border-color: lighten(black, 15%);
+				background-color: black;
+			}
+			
 			.icon {
 				vertical-align: middle;
 				font-size: 2.5em;
-				color: black;
-				@extend .mr-2;
 			}
 		
 			.text {
@@ -310,7 +351,6 @@ footer {
 				
 				.icon {
 					font-size: 2em;
-					margin: 0;
 					width: 1.25em;
 					text-align: center;
 				}

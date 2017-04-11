@@ -87,3 +87,7 @@
 		text-decoration: none;
 	}
 }
+
+@mixin _extends($selector) {
+	@extend #{$selector};
+}
