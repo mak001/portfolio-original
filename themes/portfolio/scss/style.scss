@@ -133,11 +133,24 @@ main {
 	}
 }
 
+.card-deck .card {
+	height: 100%;
+}
+
 .card {
+	
+	.card-img-top, .card-img-bottom {
+		width: 100%;
+	}
+	
 	 .card-text {
 		text-indent:0;
 		text-align: justify;
 		text-align-last: left;
+		
+		p {
+			text-indent:0;
+		}
 	}
 
 	&.uses {

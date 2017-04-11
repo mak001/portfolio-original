@@ -62,25 +62,15 @@ class ProjectHolder_Controller extends Page_Controller
         
         Requirements::css(ASSETS_DIR . '/css/uses.css');
         
-        //Requirements::css(ASSETS_DIR . '/css/frameworks.css');
-        //Requirements::css(ASSETS_DIR . '/css/languages.css');
-        
         Requirements::customScript(<<<JS
             (function($) {
-                $('.card-text').matchHeight({
-                    byRow: false
-                });
-            
-                $('.card-title').matchHeight({
-                    byRow: false
-                });
-            
-                $('.card').matchHeight({
+                $('.card-footer').matchHeight({
                     byRow: false
                 });
             })(jQuery)
 JS
 );
+
         
         $this->projectList = ProjectPage::get()->filter(array(
             'ParentID' => $this->ID

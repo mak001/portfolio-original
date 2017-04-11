@@ -13,7 +13,8 @@
 		"exadium/breadcrumbnavigation": "dev-master",
 		"axllent/silverstripe-trailing-slash": "dev-master",
 		"silverstripe/googlesitemaps": "1.6.0",
-		"xini/silverstripe-googleanalytics": "3.0.1"
+		"xini/silverstripe-googleanalytics": "3.0.1",
+		"silverstripe/blog": "^2.4"
 	},
 	"require-dev": {
 		"phpunit/PHPUnit": "~3.7@stable"

@@ -36,6 +36,11 @@ _resampled/
 /googleanalytics/
 /googlesitemaps/
 /silverstripe-trailing-slash/
+/blog/
+/comments/
+/lumberjack/
+/tagfield/
+/gridfield-bulk-editing-tools/
 
 #other
 /games/

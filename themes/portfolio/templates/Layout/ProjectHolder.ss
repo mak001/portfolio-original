@@ -16,17 +16,19 @@
   		</div>
   	</div>
     	
-	<div class="row">
+	<div class="card-deck">
 	
 		<% if $PaginatedLanguages %>
 			<% loop $PaginatedLanguages %>
-			<div class="col-md-6 col-xl-4">
-            		<div class="card my-1 uses">
+			<div class="col-md-6 col-xl-4 py-2">
+            		<div class="card uses">
             			<a href="$Link">
 							<h4 class="card-title" style="background-color: #$BGColor">$Title</h4>
 						</a>
             			<div class="card-block">
             				<p class="card-text">$Description</p>
+            			</div>
+            			<div class="card-footer">
             				<a href="$Link" class="btn btn-primary">Projects</a>
             			</div>
             		</div>
@@ -39,13 +41,15 @@
 			
 		<% else_if $PaginatedFrameworks %>
 			<% loop $PaginatedFrameworks %>
-			<div class="col-md-6 col-xl-4">
-            		<div class="card my-1 uses">
+			<div class="col-md-6 col-xl-4 py-2">
+            		<div class="card uses">
             			<a href="$Link">
 							<h4 class="card-title" style="background-color: #$BGColor">$Title</h4>
 						</a>
             			<div class="card-block">
             				<p class="card-text">$Description</p>
+            			</div>
+            			<div class="card-footer">
             				<a href="$Link" class="btn btn-primary">Projects</a>
             			</div>
             		</div>
@@ -83,8 +87,8 @@
 			
 			
 			<% loop $PaginatedProjects %>
-            	<div class="col-md-6 col-xl-4">
-            		<div class="card my-1 project">
+            	<div class="col-md-6 col-xl-4 py-2">
+            		<div class="card project">
 
 						<a href="$Link">
             			<img class="card-img-top img-fluid" 
@@ -101,6 +105,9 @@
                 					$Content.FirstSentence
                 				<% end_if %>
             				</p>
+            			</div>
+            			
+            			<div class="card-footer">
             				<div class="btn-container">
             					<a href="$Link" class="btn btn-primary">Details...</a>
             				</div>
@@ -121,6 +128,7 @@
 	            				<% end_if %>
 	            			</div>
             			</div>
+            			
             		</div>
             	</div>
         	<% end_loop %>

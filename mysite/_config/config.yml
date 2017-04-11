@@ -16,3 +16,6 @@ Image:
 SiteConfig:
   extensions:
     - 'SiteConfigExtension'
+#BlogPost:
+#  extensions:
+#    - CommentsExtension
