@@ -313,28 +313,40 @@ figure {
 footer {
 	@include fixedBG($mainImage);
 	
-	a {
+	.btn-outline-secondary {
 		color: black;
-		font-weight: 500;
+		border-color: darken(white, 15%);
+		background-color: white;
+		
+		&:hover {
+			color: white;
+			border-color: lighten(black, 15%);
+			background-color: black;
+		}
 	}
 	
 	.links {
 		display: inline-block;
 		
+		&.nav {
+			display: block;
+			width: 100%;
+			
+			.link {
+				display: block;
+				width: 100%;
+			}
+		
+			@media (min-width: map-get($grid-breakpoints, sm)) { 
+				display: inline-block;
+				width: auto;
+			}
+		}
+		
 		.link {
 			display: inline-block;
 			text-decoration: none;
 			@extend .mb-2;
-			
-			color: black;
-			border-color: darken(white, 15%);
-			background-color: white;
-			
-			&:hover {
-				color: white;
-				border-color: lighten(black, 15%);
-				background-color: black;
-			}
 			
 			.icon {
 				vertical-align: middle;

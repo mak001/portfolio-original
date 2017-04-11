@@ -7,8 +7,7 @@
 		
 		<div class="row">
 			<div class="col-sm-6 my-3">
-				<a href="$BaseHref" class="brand" rel="home">$SiteConfig.Title</a>
-				<div>
+				<div class="links nav">
 					<% include FooterNav %>
 				</div>
 			</div>
@@ -66,12 +65,10 @@
 			<% end_cached %>
 		</div>
 		
-		<div class="row">
-			<div class="col-12 text-center rounded info-text">
-	    		<small>
-	    			Theme by Matthew Koerber / Powered by <a href="http://silverstripe.org">SilverStripe</a>
-	    		</small>
-			</div>
+		<div class="col-12 text-center rounded info-text">
+    		<small>
+    			Theme by Matthew Koerber / Powered by <a href="http://silverstripe.org">SilverStripe</a>
+    		</small>
 		</div>
 		
 	</div>
