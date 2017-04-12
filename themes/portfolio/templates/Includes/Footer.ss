@@ -14,7 +14,7 @@
 			
 			<% cached 'FooterLinks', $SiteConfig.LastEdited %>
 			
-    			<div class="col-sm-6 my-3 flex-first flex-sm-last text-sm-right">
+    			<div class="col-sm-6 my-3 flex-first flex-sm-last text-center text-sm-right">
     				<% with $SiteConfig %>
     					<div class="links">
         					<% if $GitHubLink %>

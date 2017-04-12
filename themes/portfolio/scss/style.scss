@@ -332,9 +332,14 @@ footer {
 			display: block;
 			width: 100%;
 			
-			.link {
+			a {
 				display: block;
 				width: 100%;
+				text-align: left;
+			}
+		
+			.text {
+				display: inline-block;
 			}
 		
 			@media (min-width: map-get($grid-breakpoints, sm)) { 
@@ -343,7 +348,7 @@ footer {
 			}
 		}
 		
-		.link {
+		a {
 			display: inline-block;
 			text-decoration: none;
 			@extend .mb-2;
@@ -354,12 +359,13 @@ footer {
 			}
 		
 			.text {
+				@extend .pl-2;
 				display: none;
-				vertical-align: middle;
+				align-self: center;
 			}
 		
 			@media (min-width: map-get($grid-breakpoints, sm)) { 
-				display: block;
+				display: flex;
 				
 				.icon {
 					font-size: 2em;
