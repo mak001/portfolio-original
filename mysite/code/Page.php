@@ -37,12 +37,23 @@ class Page_Controller extends ContentController {
 		Requirements::css("{$this->ThemeDir()}/css/prism.css");
 		Requirements::css("{$this->ThemeDir()}/css/style.css");
 		
-		Requirements::javascript("{$this->ThemeDir()}/javascript/prism.js");
+		
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery-3.1.1.slim.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/tether.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/bootstrap.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery.matchHeight.js");
+		Requirements::javascript("{$this->ThemeDir()}/javascript/prism.js");
 		
+		Requirements::customScript(<<<JS
+            (function($) {
+                var codeBlocks = $("[class^='language-']");
+                if (codeBlocks.length > 0) {
+                    for (var i = 0; i < codeBlocks.length; i++)
+                        Prism.highlightElement(codeBlocks[i], false, null);
+                }
+            })(jQuery)
+JS
+        );
 		
 		Requirements::block(THIRDPARTY_DIR.'/jquery/jquery.min.js');
 		
