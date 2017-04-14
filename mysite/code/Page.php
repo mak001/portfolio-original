@@ -34,12 +34,15 @@ class Page_Controller extends ContentController {
 		// See: http://doc.silverstripe.org/framework/en/reference/requirements
 		
 		Requirements::css("{$this->ThemeDir()}/css/font-awesome.min.css");
+		Requirements::css("{$this->ThemeDir()}/css/prism.css");
 		Requirements::css("{$this->ThemeDir()}/css/style.css");
 		
+		Requirements::javascript("{$this->ThemeDir()}/javascript/prism.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery-3.1.1.slim.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/tether.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/bootstrap.min.js");
 		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery.matchHeight.js");
+		
 		
 		Requirements::block(THIRDPARTY_DIR.'/jquery/jquery.min.js');
 		

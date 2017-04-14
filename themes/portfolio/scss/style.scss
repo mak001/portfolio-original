@@ -340,6 +340,7 @@ footer {
 		
 			.text {
 				display: inline-block;
+				@extend .pl-0;
 			}
 		
 			@media (min-width: map-get($grid-breakpoints, sm)) { 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cb7588728b521807658c3171612bcb5",
+    "content-hash": "22cc254ee1868fddcf9a1647f7ac2a68",
     "packages": [
         {
             "name": "axllent/silverstripe-trailing-slash",
@@ -185,6 +185,51 @@
                 "silverstripe"
             ],
             "time": "2016-03-02 17:46:04"
+        },
+        {
+            "name": "mediaweb/silverstripe-tinymce4",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/loyals-online/silverstripe-tinymce4.git",
+                "reference": "3d0861199edf19673032942ad1afe78314fecaa8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/loyals-online/silverstripe-tinymce4/zipball/3d0861199edf19673032942ad1afe78314fecaa8",
+                "reference": "3d0861199edf19673032942ad1afe78314fecaa8",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.2",
+                "silverstripe/framework": "~3.2"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "tinymce4",
+                "screenshots": [
+                    "http://mediaweb.nl/assets/public/silverstripe-tinymce4.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gabrijel Gavranović",
+                    "email": "gabrijel@gavro.nl"
+                }
+            ],
+            "description": "Replaces the default Silverstripe HTMLEditor (TinyMCE v3) with TinyMCE v4.",
+            "homepage": "https://github.com/Mediaweb/silverstripe-tinymce4",
+            "keywords": [
+                "editor",
+                "htmleditor",
+                "silverstripe",
+                "tinymce"
+            ],
+            "time": "2016-07-15T14:14:10+00:00"
         },
         {
             "name": "silverstripe-themes/simple",
