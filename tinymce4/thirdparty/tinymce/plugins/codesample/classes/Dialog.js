@@ -31,7 +31,9 @@ define("tinymce/codesampleplugin/Dialog", [
 		{text: 'Java', value: 'java'},
 		{text: 'C', value: 'c'},
 		{text: 'C#', value: 'csharp'},
-		{text: 'C++', value: 'cpp'}
+		{text: 'C++', value: 'cpp'},
+		{text: 'SQL', value: 'sql'},
+		{text: 'Git', value: 'git'}
 	];
 
 	function insertCodeSample(editor, language, code, lines) {
@@ -48,7 +50,7 @@ define("tinymce/codesampleplugin/Dialog", [
 				Prism.highlightElement(node);
 				editor.selection.select(node);
 			} else {
-				editor.insertContent('<pre id="__new" class="language-' + language + extra '">' + code + '</pre>');
+				editor.insertContent('<pre id="__new" class="language-' + language + extra + '">' + code + '</pre>');
 				editor.selection.select(editor.$('#__new').removeAttr('id')[0]);
 			}
 		});

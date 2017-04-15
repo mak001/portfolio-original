@@ -130,7 +130,7 @@ class CustomHtmlEditorConfig {
         // "emoticons" => null,
         "template" => null,
         "paste" => null,
-        // "textcolor" => null,
+        "textcolor" => null,
         // "colorpicker" => null,
         // "textpattern" => null,
     );
