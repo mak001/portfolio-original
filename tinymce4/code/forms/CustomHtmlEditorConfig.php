@@ -338,7 +338,7 @@ class CustomHtmlEditorConfig {
 	public static function require_js() {
 		require_once TINYMCE4_PATH . '/thirdparty/tinymce/tiny_mce_gzip.php';
 		$useGzip = Config::inst()->get('CustomHtmlEditorField', 'use_gzip');
-
+		
 		$configs = array();
 		$externalPlugins = array();
 		$internalPlugins = array();

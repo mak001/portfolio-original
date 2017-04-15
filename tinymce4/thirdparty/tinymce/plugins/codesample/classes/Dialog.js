@@ -34,19 +34,21 @@ define("tinymce/codesampleplugin/Dialog", [
 		{text: 'C++', value: 'cpp'}
 	];
 
-	function insertCodeSample(editor, language, code) {
+	function insertCodeSample(editor, language, code, lines) {
 		editor.undoManager.transact(function() {
 			var node = getSelectedCodeSample(editor);
 
 			code = DOM.encode(code);
 
+			var extra = lines ? ' line-numbers' : '';
+			
 			if (node) {
-				editor.dom.setAttrib(node, 'class', 'language-' + language);
+				editor.dom.setAttrib(node, 'class', 'language-' + language + extra);
 				node.innerHTML = code;
 				Prism.highlightElement(node);
 				editor.selection.select(node);
 			} else {
-				editor.insertContent('<pre id="__new" class="language-' + language + '">' + code + '</pre>');
+				editor.insertContent('<pre id="__new" class="language-' + language + extra '">' + code + '</pre>');
 				editor.selection.select(editor.$('#__new').removeAttr('id')[0]);
 			}
 		});
@@ -82,6 +84,17 @@ define("tinymce/codesampleplugin/Dialog", [
 
 		return '';
 	}
+	
+	function getShowLineNumbers(editor) {
+		var matches, node = getSelectedCodeSample(editor);
+
+		if (node) {
+			matches = node.className.match(/line-numbers/);
+			return true;
+		}
+		
+		return false;
+	}
 
 	return {
 		open: function(editor) {
@@ -99,7 +112,12 @@ define("tinymce/codesampleplugin/Dialog", [
 						value: getCurrentLanguage(editor),
 						values: languages
 					},
-
+					{
+						type: 'checkbox',
+						name: 'lines',
+						text: 'Show Lines',
+						checked: getShowLineNumbers(editor)
+					},
 					{
 						type: 'textbox',
 						name: 'code',
@@ -114,7 +132,7 @@ define("tinymce/codesampleplugin/Dialog", [
 					}
 				],
 				onSubmit: function(e) {
-					insertCodeSample(editor, e.data.language, e.data.code);
+					insertCodeSample(editor, e.data.language, e.data.code, e.data.lines);
 				}
 			});
 		}

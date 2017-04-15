@@ -4,7 +4,7 @@
         	<% if $FeaturedImage %>
         		<img class="card-img-top img-fluid" src="$FeaturedImage.SetCroppedSize(510, 200, left, top).Link" alt="$FeaturedImage.ALT"/>
         	<% else %>
-        		<img class="card-img-top img-fluid" src="http://placehold.it/510x200" alt="$Title"/>
+        		<img class="card-img-top img-fluid" src="$ThemeDir/images/code.png" alt="$Title"/>
         	<% end_if %>
         </a>
     	
