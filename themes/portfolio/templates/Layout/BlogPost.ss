@@ -4,6 +4,8 @@
 		<div class="container<% if $SideBarView %> col-md-9 <% end_if %>">
 			<h3 class="text-center">$Title</h3>
 			
+			<% include EntryMeta %>
+			
 			<% if $FeaturedImage %>
     			<div class="text-center">
     				<img class="rounded" src="$FeaturedImage.setWidth(795).Link" alt="$FeaturedImage.ALT"/>
@@ -12,7 +14,7 @@
 			
 			<div class="content py-3">$Content</div>
 			
-			<% include EntryMeta %>
+			
 			
 			$Form
 			$CommentsForm

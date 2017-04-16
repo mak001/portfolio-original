@@ -19,7 +19,6 @@ class ProjectPage extends Page {
     );
     
     private static $has_many = array(
-        'Photos' => 'Photo',
         'Sources' => 'ProjectSource',
         'ViewLinks' => 'ProjectView'
     );
@@ -38,8 +37,7 @@ class ProjectPage extends Page {
         $fields->addFieldsToTab('Root.Photos', array(
             $photoFields['main'] = UploadField::create('MainPhoto'),
             CheckBoxField::create('MainImageHasLogo'),
-            CheckBoxField::create('MainImageCropMiddle', 'Crop main image from the middle'),
-            GridField::create('Photos', 'Photos', $this->Photos(), GridFieldConfig_RecordEditor::create())
+            CheckBoxField::create('MainImageCropMiddle', 'Crop main image from the middle')
         ));
         
         foreach($photoFields as $key => $field) {
@@ -137,33 +135,6 @@ class ProjectPage_Controller extends Page_Controller {
         parent::init();
         
         Requirements::css(ASSETS_DIR . '/css/uses.css');
-        
-        ShortcodeParser::get('default')->register('img', function($args, $text, $parser, $tag) {
-            $img;
-            $classes = "figure";
-            
-            if (count($this->Photos()) == 0) {
-                return '';
-                
-            } else if ($args['img'] < 0 || count($this->Photos()) <= $args['img']) {
-                $img = $this->Photos()[0];
-                
-            } else {
-                $img = $this->Photos()[$args['img']];
-            }
-            
-            if ($args['order'] == 'first') {
-                $classes .= ' first';
-            }
-            
-            $values = new ArrayData(array(
-                'Classes' => $classes,
-                'Image' => $img,
-                'Id' => $imgId
-            ));
-            
-            return $values->renderWith('Figure');
-        });
     }
     
     public function show(SS_HTTPRequest $request) {

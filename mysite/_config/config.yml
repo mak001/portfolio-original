@@ -16,6 +16,10 @@ Image:
 SiteConfig:
   extensions:
     - 'SiteConfigExtension'
-#BlogPost:
-#  extensions:
+ProjectPage:
+  extensions:
+    - 'FigureExtension'
+BlogPost:
+  extensions:
+    - 'FigureExtension'
 #    - CommentsExtension
