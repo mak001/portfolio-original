@@ -1109,12 +1109,17 @@ define("tinymce/codesampleplugin/Dialog", [
 			
 			if (node) {
 				editor.dom.setAttrib(node, 'class', 'language-' + language + extra);
-				editor.dom.setAttrib(node, 'data-start', dataStart);
+				
+				if(dataStart) {
+					editor.dom.setAttrib(node, 'data-start', dataStart);
+				}
+				
 				node.innerHTML = code;
 				Prism.highlightElement(node);
 				editor.selection.select(node);
 			} else {
-				editor.insertContent('<pre id="__new" class="language-' + language + extra + '"' + dataStart ? dataStart : '' + '>' + code + '</pre>');
+				var dataStartElem = dataStart ? ' data-start="' + dataStart + '"' : '';
+				editor.insertContent('<pre id="__new" class="language-' + language + extra + '"' + dataStartElem + '>' + code + '</pre>');
 				editor.selection.select(editor.$('#__new').removeAttr('id')[0]);
 			}
 		});
@@ -1167,9 +1172,12 @@ define("tinymce/codesampleplugin/Dialog", [
 
 		if (node) {
 			matches = node.getAttribute('data-start');
-			if (matches.constructor !== Array) 
-				return matches;
-			return matches ? matches[0] : 1;
+			if (matches != null) {
+				if (matches.constructor !== Array) {
+					return matches;
+				}
+				return matches ? matches[0] : 1;
+			}
 		}
 		
 		return 1;
