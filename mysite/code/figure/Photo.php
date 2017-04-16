@@ -15,6 +15,11 @@ class Photo extends DataObject {
         'Page' => 'Page'
     );
     
+    private static $summary_fields = array (
+        'GridThumbnail' => '',
+        'Title' => 'Title'
+    );
+    
     public function getCMSFields() {
         $fields = FieldList::create(array(
             TextField::create('Title'),
@@ -29,9 +34,16 @@ class Photo extends DataObject {
             'jpeg'
         ));
         
-        $upload->setFolderName('project-photos');
+        $upload->setFolderName('figure-photos');
         
         return $fields;
+    }
+    
+    public function getGridThumbnail() {
+        if($this->Image()->exists()) {
+            return $this->Image()->SetWidth(100);
+        }
+        return "(no image)";
     }
     
 }
