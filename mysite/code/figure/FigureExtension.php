@@ -9,10 +9,12 @@ class FigureExtension extends DataExtension {
     public function contentcontrollerInit() {
         if (Object::has_extension($this->owner->ClassName, 'FigureExtension')) {
             if ($this->owner->Photos()->exists()) {
+                
                 global $photos;
                 $photos = $this->owner->Photos();
                 
                 ShortcodeParser::get('default')->register('img', function($args, $text, $parser, $tag) {
+                    
                     global $photos;
                     $img;
                     $classes = "figure";
@@ -21,11 +23,12 @@ class FigureExtension extends DataExtension {
                     if (count($photos) == 0) {
                         return '';
                         
-                    } else if ($args['img'] < 0 || count($photos) <= $args['img']) {
+                    } else if ($args['img'] < 1 || count($photos) < $args['img']) {
                         $img = $photos[0];
                         
                     } else {
-                        $img = $photos[$args['img']];
+                        // normal people count from 1
+                        $img = $photos[$args['img'] - 1];
                     }
                     
                     if ($args['order'] == 'first') {
