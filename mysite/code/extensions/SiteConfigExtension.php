@@ -7,10 +7,14 @@ class SiteConfigExtension extends DataExtension {
         'TwitterLink' => 'Varchar',
         'GoogleLink' => 'Varchar',
         'YouTubeLink' => 'Varchar',
-        'GitHubLink' => 'Varchar'
+        'GitHubLink' => 'Varchar',
+        'MainEmail' => 'Varchar'
     );
     
     public function updateCMSFields(FieldList $fields) {
+        
+        $fields->addFieldToTab('Root.Main', EmailField::create('MainEmail'));
+        
         $fields->addFieldsToTab('Root.Social', array(
             TextField::create('FacebookLink', 'Facebook'),
             TextField::create('TwitterLink', 'Twitter'),
