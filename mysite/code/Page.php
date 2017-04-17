@@ -69,11 +69,17 @@ JS
 		Requirements::block(THIRDPARTY_DIR.'/jquery/jquery.min.js');
 		
 		ShortcodeParser::get('default')->register('languagelink', function($args, $text, $parser, $tag) {
-		    return '<a href="' . ProjectHolder::get()->First()->LanguageLink() . '">' . $text . '</a>';
+		    $holder = ProjectHolder::get()->First();
+		    if ($holder != null && $holder->exists())
+                return '<a href="' . ProjectHolder::get()->First()->LanguageLink() . '">' . $text . '</a>';
+		    return $text;
 		});
 		
 	    ShortcodeParser::get('default')->register('frameworklink', function($args, $text, $parser, $tag) {
-	        return '<a href="' . ProjectHolder::get()->First()->FrameworkLink() . '">' . $text . '</a>';
+	        $holder = ProjectHolder::get()->First();
+	        if ($holder != null && $holder->exists())
+	           return '<a href="' . ProjectHolder::get()->First()->FrameworkLink() . '">' . $text . '</a>';
+	        return $text;
 	    });
 	}
 
