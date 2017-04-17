@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "22cc254ee1868fddcf9a1647f7ac2a68",
+    "content-hash": "2cc3b2ad2e3e10cb7be30b19a82c9a5d",
     "packages": [
         {
             "name": "axllent/silverstripe-trailing-slash",
@@ -499,6 +499,44 @@
             "time": "2016-11-16T23:39:49+00:00"
         },
         {
+            "name": "silverstripe/recaptcha",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chillu/silverstripe-recaptcha.git",
+                "reference": "9fdbfedcc2fddc6e4d106a3dcdc3e3365eed2ff0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chillu/silverstripe-recaptcha/zipball/9fdbfedcc2fddc6e4d106a3dcdc3e3365eed2ff0",
+                "reference": "9fdbfedcc2fddc6e4d106a3dcdc3e3365eed2ff0",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1",
+                "silverstripe/spamprotection": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Ingo Schommer",
+                    "email": "ingo@silverstripe.com"
+                }
+            ],
+            "description": "Provides a form field which allows form to validate for non-bot submissions by giving them a challenge to decrypt an image.",
+            "keywords": [
+                "silverstripe",
+                "spamprotection"
+            ],
+            "time": "2016-10-12T18:53:14+00:00"
+        },
+        {
             "name": "silverstripe/reports",
             "version": "3.5.3",
             "source": {
@@ -590,6 +628,48 @@
                 "siteconfig"
             ],
             "time": "2016-12-22T00:18:45+00:00"
+        },
+        {
+            "name": "silverstripe/spamprotection",
+            "version": "2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
+                "reference": "56ec1f42c625bde31f7e13d56cd9cae99a2727f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/56ec1f42c625bde31f7e13d56cd9cae99a2727f3",
+                "reference": "56ec1f42c625bde31f7e13d56cd9cae99a2727f3",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7@stable"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Saophalkun Ponlu",
+                    "email": "phalkunz@silverstripe.com"
+                },
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io"
+                }
+            ],
+            "description": "Spam protection module for SilverStripe.",
+            "keywords": [
+                "silverstripe",
+                "spamprotection"
+            ],
+            "time": "2017-02-08T22:28:52+00:00"
         },
         {
             "name": "silverstripe/tagfield",

@@ -15,7 +15,9 @@
 		"silverstripe/googlesitemaps": "1.6.0",
 		"xini/silverstripe-googleanalytics": "3.0.1",
 		"silverstripe/blog": "^2.4",
-		"mediaweb/silverstripe-tinymce4": "^1.1"
+		"mediaweb/silverstripe-tinymce4": "^1.1",
+		"silverstripe/spamprotection": "^2.0",
+		"silverstripe/recaptcha": "^2.0"
 	},
 	"require-dev": {
 		"phpunit/PHPUnit": "~3.7@stable"
