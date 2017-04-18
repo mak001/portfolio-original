@@ -30,41 +30,29 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		parent::init();
-		// You can include any CSS or JS required by your project here.
-		// See: http://doc.silverstripe.org/framework/en/reference/requirements
 		
-		Requirements::css("{$this->ThemeDir()}/css/font-awesome.min.css");
-		Requirements::css("{$this->ThemeDir()}/css/prism.css");
-		Requirements::css("{$this->ThemeDir()}/css/style.css");
+		Requirements::set_combined_files_folder("{$this->ThemeDir()}/combined");
 		
+		Requirements::combine_files(
+		    'theme.css',
+		    array(
+		        "{$this->ThemeDir()}/css/font-awesome.min.css",
+		        "{$this->ThemeDir()}/css/prism.css",
+		        "{$this->ThemeDir()}/css/style.css"
+		    )
+		);
 		
-		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery-3.1.1.slim.min.js");
-		Requirements::javascript("{$this->ThemeDir()}/javascript/tether.min.js");
-		Requirements::javascript("{$this->ThemeDir()}/javascript/bootstrap.min.js");
-		Requirements::javascript("{$this->ThemeDir()}/javascript/jquery.matchHeight.js");
-		Requirements::javascript("{$this->ThemeDir()}/javascript/prism.js");
-		
-		Requirements::customScript(<<<JS
-            (function($) {
-                var codeBlocks = $("[class*='language-']");
-                if (codeBlocks.length > 0) {
-                    for (var i = 0; i < codeBlocks.length; i++) {
-                        var block = $(codeBlocks[i]);
-                        var classes = block.attr("class").split(' ');
-                       
-                        classes = classes.filter(function(item) {
-                            return item !== 'line-numbers';
-                        });
-                           
-                        var code = '<code class="' + classes.join(' ') + '">' + block.text() + '</code>';
-
-                        block.empty();
-                        block.append(code);
-                    }
-                }
-            })(jQuery)
-JS
-        );
+		Requirements::combine_files(
+		    'script.js',
+		    array(
+		        "{$this->ThemeDir()}/javascript/jquery-3.1.1.slim.min.js",
+		        "{$this->ThemeDir()}/javascript/tether.min.js",
+		        "{$this->ThemeDir()}/javascript/bootstrap.min.js",
+		        "{$this->ThemeDir()}/javascript/jquery.matchHeight.js",
+		        "{$this->ThemeDir()}/javascript/prism.js",
+		        "{$this->ThemeDir()}/javascript/samplecode.js"
+		    )
+		);
 		
 		Requirements::block(THIRDPARTY_DIR.'/jquery/jquery.min.js');
 		

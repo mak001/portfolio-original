@@ -29,6 +29,7 @@ _resampled/
 *.orig
 *.log
 
+/themes/portfolio/combined/
 /themes/simple/
 /better-image/
 /colorpicker/
