@@ -2,6 +2,7 @@
 	
 	<% if $MainImageHasLogo %>
     	<div class="jumbotron bg-info text-center $ExtraClasses" id="project-header" style="background-image: url($MainPhotoResizeLink(1110, 350))">
+    		<h1 class="sr-only">$Title</h1>
         </div>
     <% else %>
 		<div class="jumbotron bg-info text-center overlay $ExtraClasses" id="project-header" style="background-image: url($MainPhotoResizeLink(1110, 350))">

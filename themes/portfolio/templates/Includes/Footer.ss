@@ -19,7 +19,7 @@
     					<div class="links">
         					<% if $GitHubLink %>
         						<a href="$GitHubLink" class="link btn btn-outline-secondary" title="GitHub">
-        							<i class="fa fa-github icon" aria-hidden="true"></i>
+        							<span class="fa fa-github icon" aria-hidden="true"></span>
         							<span class="sr-only">GitHub</span>
         							<span class="text">GitHub</span>
         						</a>
@@ -27,7 +27,7 @@
         					
         					<% if $YouTubeLink %>
         						<a href="$YouTubeLink" class="link btn btn-outline-secondary" title="YouTube">
-        							<i class="fa fa-youtube-play icon" aria-hidden="true"></i>
+        							<span class="fa fa-youtube-play icon" aria-hidden="true"></span>
         							<span class="sr-only">YouTube</span>
         							<span class="text">YouTube</span>
         						</a>
@@ -35,7 +35,7 @@
         					
         					<% if $TwitterLink %>
         						<a href="$TwitterLink" class="link btn btn-outline-secondary" title="Twitter">
-        							<i class="fa fa-twitter icon" aria-hidden="true"></i>
+        							<span class="fa fa-twitter icon" aria-hidden="true"></span>
         							<span class="sr-only">Twitter</span>
         							<span class="text">Twitter</span>
         						</a>
@@ -43,7 +43,7 @@
         					
         					<% if $FacebookLink %>
         						<a href="$FacebookLink" class="link btn btn-outline-secondary" title="Facebook">
-        							<i class="fa fa-facebook-square icon" aria-hidden="true"></i>
+        							<span class="fa fa-facebook-square icon" aria-hidden="true"></span>
         							<span class="sr-only">Facebook</span>
         							<span class="text">Facebook</span>
         						</a>
@@ -51,7 +51,7 @@
         					
         					<% if $GoogleLink %>
         						<a href="$GoogleLink" class="link btn btn-outline-secondary" title="Google">
-        							<i class="fa fa-google icon" aria-hidden="true"></i>
+        							<span class="fa fa-google icon" aria-hidden="true"></span>
         							<span class="sr-only">Google</span>
         							<span class="text">Google</span>
         						</a>

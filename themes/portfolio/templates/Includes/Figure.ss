@@ -15,7 +15,7 @@
 				</button>
 			</div>
 			<div class="modal-body text-center">
-				<img src="$Image.Image.Link"/>
+				<img src="$Image.Image.Link" alt="$Image.Image.ALT"/>
 			</div>
 		</div>
 	</div>
