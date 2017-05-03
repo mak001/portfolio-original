@@ -20,7 +20,7 @@
 	
 		<% if $PaginatedLanguages %>
 			<% loop $PaginatedLanguages %>
-			<div class="col-md-6 col-xl-4 py-2">
+			<div class="col-md-6 col-xl-4 py-2 mx-auto">
             		<div class="card uses">
             			<a href="$Link">
 							<h4 class="card-title" style="background-color: #$BGColor">$Title</h4>
@@ -41,7 +41,7 @@
 			
 		<% else_if $PaginatedFrameworks %>
 			<% loop $PaginatedFrameworks %>
-			<div class="col-md-6 col-xl-4 py-2">
+			<div class="col-md-6 col-xl-4 py-2 mx-auto">
             		<div class="card uses">
             			<a href="$Link">
 							<h4 class="card-title" style="background-color: #$BGColor">$Title</h4>
@@ -87,7 +87,7 @@
 			
 			
 			<% loop $PaginatedProjects %>
-            	<div class="col-md-6 col-xl-4 py-2">
+            	<div class="col-md-6 col-xl-4 py-2 mx-auto">
             		<div class="card project">
 
 						<a href="$Link">
