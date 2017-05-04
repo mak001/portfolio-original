@@ -168,19 +168,19 @@ JS
         $this->AddBreadCrumbAfter($obj);
     }
 
-    public function PaginatedProjects($num = 10)
+    public function PaginatedProjects($num = 6)
     {
         return PaginatedList::create($this->projectList, $this->getRequest())->setPageLength($num);
     }
 
-    public function PaginatedLanguages($num = 10)
+    public function PaginatedLanguages($num = 12)
     {
         if ($this->languageList) {
             return PaginatedList::create($this->languageList, $this->getRequest())->setPageLength($num);
         }
     }
 
-    public function PaginatedFrameworks($num = 10)
+    public function PaginatedFrameworks($num = 12)
     {
         if ($this->frameworkList) {
             return PaginatedList::create($this->frameworkList, $this->getRequest())->setPageLength($num);
