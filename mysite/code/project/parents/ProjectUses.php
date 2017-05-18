@@ -71,7 +71,7 @@ class ProjectUses extends DataObject {
     }
 
     // originally from ColorField
-    private function getTextColorStyle($color) {
+    public function getTextColorStyle($color) {
         // change alpha component depending on disabled state
         if($color) {
             list($R, $G, $B) = Color::HEX_TO_RGB($color);
