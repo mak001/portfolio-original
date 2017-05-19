@@ -23,7 +23,3 @@ BlogPost:
   extensions:
     - 'FigureExtension'
 #    - CommentsExtension
-
-
-Director:
-  environment_type: 'dev'
