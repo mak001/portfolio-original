@@ -1,13 +1,12 @@
 {
-	"name": "silverstripe/installer",
-	"description": "The SilverStripe Framework Installer",
+	"name": "mak001/portfolio",
+	"description": "The Portfolio for Matthew Koerber (aka mak001)",
 	"require": {
 		"php": ">=5.3.3",
 		"silverstripe/cms": "3.5.3",
 		"silverstripe/framework": "3.5.3",
 		"silverstripe/reports": "3.5.3",
 		"silverstripe/siteconfig": "3.5.3",
-		"silverstripe-themes/simple": "3.1.*",
 		"zauberfisch/silverstripe-better-image": "dev-master",
 		"tractorcow/silverstripe-colorpicker": "3.0.*@dev",
 		"exadium/breadcrumbnavigation": "dev-master",
@@ -30,6 +29,6 @@
 	"config": {
 		"process-timeout": 600
 	},
-	"prefer-stable": true,
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }
