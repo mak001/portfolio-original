@@ -10,16 +10,5 @@ After:
 SSViewer:
   theme: 'portfolio'
   
-Image:
-  extensions:
-    - 'ImageExtension'
-SiteConfig:
-  extensions:
-    - 'SiteConfigExtension'
-ProjectPage:
-  extensions:
-    - 'FigureExtension'
-BlogPost:
-  extensions:
-    - 'FigureExtension'
-#    - CommentsExtension
+Director:
+  environment_type: 'dev'
